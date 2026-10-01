@@ -1,21 +1,24 @@
-/* DBP12 – ruhige Farben zwischen Wasser und Sand. Keine externen Schriften
-   oder Dienste, damit beim Aufruf keine Daten an Dritte gehen. */
+/* DBP12 – Sand, Creme und Salbeigrün mit einem warmen Ocker als Akzent.
+   Keine externen Schriften oder Dienste, damit beim Aufruf keine Daten an Dritte gehen. */
 :root {
-  --ink: #1f3a3d;
-  --ink-soft: #4b6467;
-  --muted: #7d8f91;
-  --bg: #f6f2ea;
-  --paper: #fffdf9;
-  --tint: #e9efec;
-  --line: #d9d4c8;
-  --accent: #2f6f73;
+  --ink: #2f3529;        /* dunkles Olivgrau für Text */
+  --ink-soft: #5b6152;
+  --muted: #777b6b;
+  --bg: #f4efe5;         /* Sand */
+  --paper: #fbf8f1;      /* Creme */
+  --tint: #e6eadb;       /* helles Salbei für abgesetzte Bereiche */
+  --line: #ded6c6;
+  --accent: #56704f;     /* Salbeigrün */
+  --accent-hover: #475e41;
   --accent-ink: #ffffff;
-  --warm: #c0694a;
-  --booked: #d8d4cc;
-  --booked-ink: #9c9a94;
-  --sel: #2f6f73;
-  --sel-range: #cfe2df;
-  --error: #a63c2a;
+  --warm: #c2a15f;       /* Ocker */
+  --booked: #e2dbcd;
+  --booked-ink: #a39d8f;
+  --sel: #56704f;
+  --sel-range: #d9e2cc;
+  --footer: #3a4235;
+  --error: #8a4b2f;
+  --error-bg: #f3e6dc;
   --radius: 14px;
   --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Charter, Georgia, serif;
   --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -64,16 +67,17 @@ h3 { font-size: 1.25rem; }
 .hero { position: relative; min-height: min(78vh, 680px); display: grid; align-items: end; overflow: hidden; }
 .hero-media { position: absolute; inset: 0; }
 .hero-media img { width: 100%; height: 100%; object-fit: cover; }
-.hero-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,38,40,0) 30%, rgba(20,38,40,.68) 100%); }
-.hero-text { position: relative; color: #fff; padding: 120px 0 56px; }
-.hero-text .kicker, .hero-text .lead { color: rgba(255,255,255,.88); }
-.hero-text h1 { max-width: 20ch; }
-.hero-actions { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin: 1.6rem 0 0; }
-.from { font-size: .95rem; color: rgba(255,255,255,.9); }
+.hero-text { position: relative; padding: 120px 0 48px; }
+.hero-panel { max-width: 560px; background: rgba(251, 248, 241, .86); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border-radius: var(--radius); padding: clamp(22px, 3.5vw, 36px); box-shadow: 0 10px 40px rgba(47, 53, 41, .12); }
+.hero-panel h1 { font-size: clamp(1.9rem, 4vw, 2.9rem); }
+.hero-panel .lead { margin: 0; }
+.hero-actions { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin: 1.4rem 0 0; }
+.from { font-size: .95rem; color: var(--ink-soft); }
+@media (max-width: 560px) { .hero { min-height: 0; } .hero-text { padding: 200px 0 16px; } }
 
 /* Buttons */
 .btn { display: inline-block; background: var(--accent); color: var(--accent-ink); border: 0; border-radius: 999px; padding: 13px 26px; font: 600 1rem var(--sans); text-decoration: none; cursor: pointer; transition: background .15s, transform .15s; }
-.btn:hover { background: #255b5e; }
+.btn:hover { background: var(--accent-hover); }
 .btn:active { transform: translateY(1px); }
 .btn:disabled { opacity: .55; cursor: not-allowed; }
 .btn-ghost { background: transparent; color: var(--accent); box-shadow: inset 0 0 0 1.5px var(--accent); }
@@ -104,7 +108,8 @@ h3 { font-size: 1.25rem; }
 @media (max-width: 920px) { .booking { grid-template-columns: 1fr; } }
 .calendar-card, fieldset, .summary-card { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; }
 fieldset { margin: 20px 0 0; }
-legend { font-family: var(--serif); font-size: 1.15rem; padding: 0 6px; margin-left: -6px; }
+legend { float: left; width: 100%; padding: 0; margin: 0 0 2px; font-family: var(--serif); font-size: 1.15rem; }
+legend + * { clear: both; }
 label { display: block; margin: 12px 0 0; font-size: .92rem; color: var(--ink-soft); }
 label > span { display: block; margin-bottom: 4px; }
 input, select, textarea { width: 100%; font: 1rem var(--sans); color: var(--ink); background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 11px 12px; }
@@ -123,7 +128,7 @@ label small { color: var(--muted); }
 .rate-info { font-size: .82rem; color: var(--muted); }
 .check { display: flex; gap: 10px; align-items: flex-start; margin: 16px 0; color: var(--ink); font-size: .92rem; }
 .check input { width: 20px; height: 20px; margin: 2px 0 0; flex: none; accent-color: var(--accent); }
-.form-error { color: var(--error); font-size: .92rem; background: #f8e6e1; border-radius: 8px; padding: 10px 12px; }
+.form-error { color: var(--error); font-size: .92rem; background: var(--error-bg); border-radius: 8px; padding: 10px 12px; }
 
 /* Zahlarten */
 .pay-options { display: grid; gap: 10px; margin-top: 8px; }
@@ -165,7 +170,7 @@ label small { color: var(--muted); }
 
 /* Dialoge */
 dialog { border: 0; padding: 0; color: var(--ink); }
-dialog::backdrop { background: rgba(20, 38, 40, .55); }
+dialog::backdrop { background: rgba(47, 53, 41, .55); }
 .sheet { width: min(760px, 100% - 24px); max-height: min(86vh, 900px); border-radius: var(--radius); background: var(--paper); display: none; flex-direction: column; overflow: hidden; }
 .sheet[open] { display: flex; }
 .sheet-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; padding: 22px 26px 12px; border-bottom: 1px solid var(--line); }
@@ -184,7 +189,7 @@ dialog::backdrop { background: rgba(20, 38, 40, .55); }
 .lightbox .close { position: absolute; top: 6px; right: 6px; color: #fff; background: rgba(0,0,0,.4); border-radius: 50%; width: 40px; height: 40px; }
 
 /* Fußzeile */
-.footer { background: var(--ink); color: rgba(255,255,255,.8); padding: 28px 0; font-size: .88rem; }
+.footer { background: var(--footer); color: rgba(255,255,255,.8); padding: 28px 0; font-size: .88rem; }
 .footer-inner { display: flex; flex-wrap: wrap; gap: 12px 28px; align-items: center; }
 .footer-links { margin-left: auto; display: flex; gap: 18px; }
 .footer a { color: #fff; }
@@ -192,7 +197,7 @@ dialog::backdrop { background: rgba(20, 38, 40, .55); }
 /* Rechtliches */
 .legal { padding: 48px 0 80px; }
 .legal section { margin-bottom: 48px; }
-.placeholder { background: #fff6dc; border: 1px dashed #d8b65a; border-radius: 8px; padding: 12px 14px; font-size: .92rem; }
+.placeholder { background: #f6eedb; border: 1px dashed var(--warm); border-radius: 8px; padding: 12px 14px; font-size: .92rem; }
 
 /* Admin */
 .admin table { width: 100%; border-collapse: collapse; font-size: .9rem; background: var(--paper); }
@@ -205,6 +210,9 @@ dialog::backdrop { background: rgba(20, 38, 40, .55); }
 .admin .tools input { width: auto; }
 .table-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); }
 .badge { display: inline-block; font-size: .75rem; padding: 2px 8px; border-radius: 999px; background: var(--tint); }
-.badge.confirmed { background: #d9ece6; }
-.badge.pending_payment { background: #fbeccb; }
+.badge.confirmed { background: var(--sel-range); }
+.badge.pending_payment { background: #f1e3c3; }
 .badge.cancelled { background: #eee; }
+.sheet-body p { max-width: none; }
+.sheet-body ul { padding-left: 1.1em; }
+fieldset > legend + label { margin-top: 14px; }

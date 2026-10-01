@@ -75,15 +75,15 @@ function fmtMoney(cents, lang) {
 }
 
 function layout(body) {
-  return `<!doctype html><html><body style="margin:0;background:#f4f1ec;font-family:Georgia,serif;color:#1f2a2e">
+  return `<!doctype html><html><body style="margin:0;background:#f4efe5;font-family:Georgia,serif;color:#2f3529">
   <div style="max-width:560px;margin:0 auto;padding:32px 24px;background:#fff">
-  <p style="font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#4a6b70;margin:0 0 24px">Dora-Benjamin-Park 12 · Berlin-Stralau</p>
+  <p style="font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#56704f;margin:0 0 24px">Dora-Benjamin-Park 12 · Berlin-Stralau</p>
   ${body}
   </div></body></html>`;
 }
 
 function row(label, value) {
-  return `<tr><td style="padding:6px 16px 6px 0;color:#5b6b6e;vertical-align:top">${escapeHtml(label)}</td><td style="padding:6px 0">${value}</td></tr>`;
+  return `<tr><td style="padding:6px 16px 6px 0;color:#5b6152;vertical-align:top">${escapeHtml(label)}</td><td style="padding:6px 0">${value}</td></tr>`;
 }
 
 export async function sendGuestConfirmation(env, b) {
@@ -97,14 +97,14 @@ export async function sendGuestConfirmation(env, b) {
     <p>${t.intro}</p>
     <table style="border-collapse:collapse;font-size:15px;margin:16px 0">
       ${row(t.ref, `<strong>${escapeHtml(b.id)}</strong>`)}
-      ${row(t.arrival, `${fmtDate(b.check_in, lang)}<br><span style="color:#5b6b6e">${t.checkin(s.checkInFrom, s.checkInUntil)}</span>`)}
-      ${row(t.departure, `${fmtDate(b.check_out, lang)}<br><span style="color:#5b6b6e">${t.checkout(s.checkOutBy)}</span>`)}
+      ${row(t.arrival, `${fmtDate(b.check_in, lang)}<br><span style="color:#5b6152">${t.checkin(s.checkInFrom, s.checkInUntil)}</span>`)}
+      ${row(t.departure, `${fmtDate(b.check_out, lang)}<br><span style="color:#5b6152">${t.checkout(s.checkOutBy)}</span>`)}
       ${row(t.guests, escapeHtml(guests))}
       ${breakdown ? row(t.nights, String(breakdown.nights)) : ""}
       ${row(t.total, `<strong>${fmtMoney(b.amount_cents, lang)}</strong>`)}
       ${row(t.payment, b.payment_method === "cash" ? t.cash : t.online)}
     </table>
-    <p>${t.rules}<br><a href="${env.PUBLIC_URL}/?lang=${lang}#rules" style="color:#2f6f73">${env.PUBLIC_URL}/?lang=${lang}#rules</a></p>
+    <p>${t.rules}<br><a href="${env.PUBLIC_URL}/?lang=${lang}#rules" style="color:#56704f">${env.PUBLIC_URL}/?lang=${lang}#rules</a></p>
     <p>${t.contact}</p>
     <p>${t.bye}<br>${escapeHtml(config.contact.hostName)}</p>`);
   return send(env, { to: b.guest_email, subject: t.subject(b.id), html, replyTo: env.HOST_EMAIL || config.contact.hostEmail || undefined });
@@ -126,6 +126,6 @@ export async function sendHostNotification(env, b) {
       ${row("Nachricht", escapeHtml(b.guest_message || "–").replace(/\n/g, "<br>"))}
       ${row("Hausordnung", `Version ${escapeHtml(b.rules_version)}, akzeptiert ${escapeHtml(b.rules_accepted_at)}`)}
     </table>
-    <p><a href="${env.PUBLIC_URL}/admin.html" style="color:#2f6f73">Zur Übersicht</a></p>`);
+    <p><a href="${env.PUBLIC_URL}/admin.html" style="color:#56704f">Zur Übersicht</a></p>`);
   return send(env, { to, subject: `Neue Buchung ${b.id}: ${b.check_in} bis ${b.check_out}`, html, replyTo: b.guest_email });
 }
