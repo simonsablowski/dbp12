@@ -9,11 +9,7 @@
         "en": "Living and dining room (AI visualisation)"
       },
       "w": 1106,
-      "h": 827,
-      "caption": {
-        "de": "KI-Visualisierung",
-        "en": "AI visualisation"
-      }
+      "h": 827
     },
     {
       "src": "images/gallery/schlafen.webp",
@@ -22,11 +18,7 @@
         "en": "Bedroom (AI visualisation)"
       },
       "w": 1104,
-      "h": 830,
-      "caption": {
-        "de": "KI-Visualisierung",
-        "en": "AI visualisation"
-      }
+      "h": 830
     },
     {
       "src": "images/gallery/kueche.webp",
