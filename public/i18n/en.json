@@ -16,11 +16,11 @@
   "flat.factsTitle": "At a glance",
   "flat.fact.guests": "Up to 2 adults and 2 children",
   "flat.fact.size": "57.5 m², 2 rooms, first floor",
-  "flat.fact.beds": "Bedroom with a 180 × 200 cm bed and an extendable bed (80 × 200, extended 160 × 200 cm)",
-  "flat.fact.kitchen": "Fitted kitchen with stove, oven and fridge",
+  "flat.fact.beds": "180 × 200 cm bed and 160 × 200 cm pull-out bed",
+  "flat.fact.kitchen": "Fitted kitchen with stove, oven, fridge and dishwasher",
   "flat.fact.bath": "Bathroom with walk-in shower (renovated 2024)",
   "flat.fact.wifi": "Wi-Fi",
-  "flat.fact.linen": "Bed linen and towels included (bath, hand and guest towels)",
+  "flat.fact.linen": "Bed linen and towels included",
   "flat.fact.nosmoking": "Non-smoking, no pets",
   "flat.galleryTitle": "Photos",
   "flat.photoHint": "Provisional photos, current ones will follow.",
@@ -115,5 +115,6 @@
   "area.galleryTitle": "Around the house",
   "flat.fact.garden": "Shared garden, no balcony",
   "gallery.prev": "Previous image",
-  "gallery.next": "Next image"
+  "gallery.next": "Next image",
+  "flat.fact.kitchenware": "Kettle, coffee maker, toaster, pots and pans, crockery and cutlery, glasses and cups"
 }

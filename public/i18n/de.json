@@ -16,11 +16,11 @@
   "flat.factsTitle": "Auf einen Blick",
   "flat.fact.guests": "Bis zu 2 Erwachsene und 2 Kinder",
   "flat.fact.size": "57,5 m², 2 Zimmer, 1. Obergeschoss",
-  "flat.fact.beds": "Schlafzimmer mit Bett 180 × 200 cm und ausziehbarem Bett (80 × 200, ausgezogen 160 × 200 cm)",
-  "flat.fact.kitchen": "Einbauküche mit Herd, Backofen und Kühlschrank",
+  "flat.fact.beds": "Bett 180 × 200 cm und Ausziehbett 160 × 200 cm",
+  "flat.fact.kitchen": "Einbauküche mit Herd, Backofen, Kühlschrank und Geschirrspüler",
   "flat.fact.bath": "Bad mit bodengleicher Dusche (2024 renoviert)",
   "flat.fact.wifi": "WLAN",
-  "flat.fact.linen": "Bettwäsche und Handtücher inklusive (Bade-, Hand- und Gästetücher)",
+  "flat.fact.linen": "Bettwäsche und Handtücher inklusive",
   "flat.fact.nosmoking": "Nichtraucherwohnung, keine Haustiere",
   "flat.galleryTitle": "Fotos",
   "flat.photoHint": "Vorläufige Fotos, aktuelle folgen.",
@@ -115,5 +115,6 @@
   "area.galleryTitle": "Rund ums Haus",
   "flat.fact.garden": "Gemeinschaftsgarten, kein Balkon",
   "gallery.prev": "Vorheriges Bild",
-  "gallery.next": "Nächstes Bild"
+  "gallery.next": "Nächstes Bild",
+  "flat.fact.kitchenware": "Wasserkocher, Kaffeemaschine, Toaster, Töpfe und Pfannen, Geschirr und Besteck, Gläser und Tassen"
 }
