@@ -47,29 +47,59 @@ function renderMedia() {
   const fill = (box, list) => {
     box.innerHTML = "";
     list.forEach((p, i) => {
+      const fig = document.createElement("figure");
       const b = document.createElement("button");
       b.type = "button";
       b.title = p.alt[l];
+      if (p.contain) b.classList.add("is-plan");
       const img = document.createElement("img");
       img.src = p.src;
       img.alt = p.alt[l];
       if (i > 0) img.loading = "lazy";
       b.appendChild(img);
-      b.addEventListener("click", () => openLightbox(p.src, p.alt[l]));
-      box.appendChild(b);
+      b.addEventListener("click", () => openLightbox(list, i));
+      fig.appendChild(b);
+      if (p.caption) {
+        const cap = document.createElement("figcaption");
+        cap.textContent = p.caption[l];
+        fig.appendChild(cap);
+      }
+      box.appendChild(fig);
     });
   };
   fill($("#gallery"), g.photos);
   fill($("#gallery-area"), g.area || []);
-  const fp = $("#floorplan");
-  fp.src = g.floorplan.src;
-  fp.alt = g.floorplan.alt[l];
 }
 
-function openLightbox(src, alt) {
+// Großansicht mit Blättern (Pfeiltasten, Buttons, Wischen)
+const lightbox = { list: [], index: 0 };
+
+function showLightboxImage() {
+  const { list, index } = lightbox;
+  const p = list[index];
+  const l = lang();
   const img = $("#lightbox-img");
-  img.src = src; img.alt = alt;
-  $("#lightbox-cap").textContent = alt;
+  img.src = p.src;
+  img.alt = p.alt[l];
+  img.classList.toggle("is-plan", !!p.contain);
+  $("#lightbox-cap").textContent = p.alt[l];
+  $("#lightbox-count").textContent = `${index + 1} / ${list.length}`;
+  const single = list.length < 2;
+  $("#lightbox-prev").hidden = single;
+  $("#lightbox-next").hidden = single;
+}
+
+function stepLightbox(delta) {
+  const n = lightbox.list.length;
+  if (n < 2) return;
+  lightbox.index = (lightbox.index + delta + n) % n;
+  showLightboxImage();
+}
+
+function openLightbox(list, index) {
+  lightbox.list = list;
+  lightbox.index = index;
+  showLightboxImage();
   $("#lightbox").showModal();
 }
 
@@ -383,7 +413,20 @@ async function init() {
   document.querySelectorAll("[data-open-rules]").forEach((b) => b.addEventListener("click", openRules));
   document.querySelectorAll("dialog [data-close]").forEach((b) => b.addEventListener("click", () => b.closest("dialog").close()));
   document.querySelectorAll("dialog").forEach((d) => d.addEventListener("click", (e) => { if (e.target === d) d.close(); }));
-  $("#floorplan-btn").addEventListener("click", () => openLightbox($("#floorplan").src, $("#floorplan").alt));
+  $("#lightbox-prev").addEventListener("click", () => stepLightbox(-1));
+  $("#lightbox-next").addEventListener("click", () => stepLightbox(1));
+  $("#lightbox").addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") { e.preventDefault(); stepLightbox(-1); }
+    if (e.key === "ArrowRight") { e.preventDefault(); stepLightbox(1); }
+  });
+  let touchX = null;
+  $("#lightbox").addEventListener("touchstart", (e) => { touchX = e.touches[0].clientX; }, { passive: true });
+  $("#lightbox").addEventListener("touchend", (e) => {
+    if (touchX === null) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 50) stepLightbox(dx < 0 ? 1 : -1);
+    touchX = null;
+  });
   $("#cal-prev").addEventListener("click", () => { state.view = addMonths(state.view, -1); renderCalendar(); });
   $("#cal-next").addEventListener("click", () => { state.view = addMonths(state.view, 1); renderCalendar(); });
   $("#cal-reset").addEventListener("click", () => { state.start = state.end = null; renderCalendar(); renderPrice(); });

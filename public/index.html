@@ -72,8 +72,6 @@
         <div class="gallery" id="gallery"></div>
         <p class="hint" data-i18n="flat.photoHint"></p>
 
-        <h3 class="sub" data-i18n="flat.floorplanTitle"></h3>
-        <figure class="floorplan"><button type="button" class="zoomable" id="floorplan-btn"><img id="floorplan" src="" alt=""></button></figure>
       </div>
     </section>
 
@@ -207,7 +205,9 @@
 
   <dialog id="lightbox" class="lightbox">
     <button type="button" class="close" data-close data-i18n-attr="aria-label:rules.close">×</button>
-    <figure><img id="lightbox-img" src="" alt=""><figcaption id="lightbox-cap"></figcaption></figure>
+    <button type="button" class="lb-nav lb-prev" id="lightbox-prev" data-i18n-attr="aria-label:gallery.prev">‹</button>
+    <figure><img id="lightbox-img" src="" alt=""><figcaption><span id="lightbox-cap"></span> <span class="lb-count" id="lightbox-count"></span></figcaption></figure>
+    <button type="button" class="lb-nav lb-next" id="lightbox-next" data-i18n-attr="aria-label:gallery.next">›</button>
   </dialog>
 
   <script src="js/app.js" type="module"></script>

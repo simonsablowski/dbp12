@@ -1,5 +1,5 @@
 {
-  "_comment": "Fotos austauschen: Datei in images/gallery/ bzw. images/area/ ablegen und hier eintragen. Reihenfolge = Reihenfolge auf der Seite. 'hero' ist das große Bild oben.",
+  "_comment": "Fotos austauschen: Datei in images/gallery/ bzw. images/area/ ablegen und hier eintragen. Reihenfolge = Reihenfolge auf der Seite. 'hero' ist das große Bild oben. 'caption' = Bildunterschrift unter dem Vorschaubild, 'contain' = Bild nicht beschneiden (z. B. Grundriss).",
   "hero": "images/gallery/fensterblick.webp",
   "photos": [
     {
@@ -9,7 +9,11 @@
         "en": "Living and dining room (AI visualisation)"
       },
       "w": 1106,
-      "h": 827
+      "h": 827,
+      "caption": {
+        "de": "KI-Visualisierung",
+        "en": "AI visualisation"
+      }
     },
     {
       "src": "images/gallery/schlafen.webp",
@@ -18,7 +22,11 @@
         "en": "Bedroom (AI visualisation)"
       },
       "w": 1104,
-      "h": 830
+      "h": 830,
+      "caption": {
+        "de": "KI-Visualisierung",
+        "en": "AI visualisation"
+      }
     },
     {
       "src": "images/gallery/kueche.webp",
@@ -36,15 +44,6 @@
         "en": "Bathroom with walk-in shower"
       },
       "w": 1106,
-      "h": 830
-    },
-    {
-      "src": "images/gallery/flur.webp",
-      "alt": {
-        "de": "Flur",
-        "en": "Hallway"
-      },
-      "w": 623,
       "h": 830
     },
     {
@@ -73,6 +72,14 @@
       },
       "w": 1106,
       "h": 829
+    },
+    {
+      "src": "images/grundriss.png",
+      "alt": {
+        "de": "Grundriss: Wohnen und Essen 23,8 m², Schlafzimmer 18,4 m², Flur, Garderobe, Bad, Abstellraum; insgesamt 57,5 m²",
+        "en": "Floor plan: living and dining 23.8 m², bedroom 18.4 m², hallway, dressing area, bathroom, storage room; 57.5 m² in total"
+      },
+      "contain": true
     }
   ],
   "area": [
@@ -121,12 +128,5 @@
       "w": 1047,
       "h": 830
     }
-  ],
-  "floorplan": {
-    "src": "images/grundriss.png",
-    "alt": {
-      "de": "Grundriss: Wohnen und Essen 23,8 m², Schlafzimmer 18,4 m², Flur, Garderobe, Bad, Abstellraum; insgesamt 57,5 m²",
-      "en": "Floor plan: living and dining 23.8 m², bedroom 18.4 m², hallway, dressing area, bathroom, storage room; 57.5 m² in total"
-    }
-  }
+  ]
 }
