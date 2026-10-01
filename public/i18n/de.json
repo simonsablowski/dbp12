@@ -17,7 +17,7 @@
   "flat.fact.guests": "Bis zu 2 Erwachsene und 2 Kinder",
   "flat.fact.size": "57,5 m², 2 Zimmer, 1. Obergeschoss",
   "flat.fact.beds": "Bett 180 × 200 cm und Ausziehbett 160 × 200 cm",
-  "flat.fact.kitchen": "Einbauküche mit Herd, Backofen, Kühlschrank und Geschirrspüler",
+  "flat.fact.kitchen": "Küche mit Ofen und Geschirrspüler",
   "flat.fact.bath": "Bad mit bodengleicher Dusche (2024 renoviert)",
   "flat.fact.wifi": "WLAN",
   "flat.fact.linen": "Bettwäsche und Handtücher inklusive",
@@ -30,11 +30,11 @@
   "area.p3": "Der S-Bahnhof Treptower Park ist etwa 5 Minuten zu Fuß entfernt, der Bahnhof Ostkreuz etwa 10 Minuten. Von dort fahren S-Bahnen in alle Richtungen, auch direkt zum Flughafen BER. Ein Supermarkt und mehrere Cafés sind zu Fuß erreichbar. Der Boxhagener Platz, das RAW-Gelände, die East Side Gallery und der Treptower Park sind nur ein paar Minuten mit dem Rad entfernt.",
   "area.tipsTitle": "In der Nähe",
   "area.tip1": "Uferweg rund um die Halbinsel",
-  "area.tip2": "Treptower Park",
+  "area.tip2": "Treptower Park und Plänterwald",
   "area.tip3": "Supermarkt und Cafés in Laufweite",
-  "area.tip4": "Boxhagener Platz mit Wochenmarkt",
-  "area.tip5": "S-Bahnhof Treptower Park (ca. 5 Min. zu Fuß)",
-  "area.tip6": "Bahnhof Ostkreuz (ca. 10 Min. zu Fuß)",
+  "area.tip4": "S-Bahnhof Treptower Park (ca. 5 Min. zu Fuß)",
+  "area.tip5": "Bahnhof Ostkreuz (ca. 10 Min. zu Fuß)",
+  "area.tip6": "Boxhagener Platz mit Wochenmarkt",
   "rules.title": "Hausordnung & Mietbedingungen",
   "rules.lead": "Ein paar Regeln, damit sich alle wohlfühlen: du, die Nachbarn und die nächsten Gäste. Vor der Buchung bestätigst du, dass du sie gelesen hast.",
   "rules.read": "Hausordnung lesen",
@@ -116,5 +116,5 @@
   "flat.fact.garden": "Gemeinschaftsgarten, kein Balkon",
   "gallery.prev": "Vorheriges Bild",
   "gallery.next": "Nächstes Bild",
-  "flat.fact.kitchenware": "Wasserkocher, Kaffeemaschine, Toaster, Töpfe und Pfannen, Geschirr und Besteck, Gläser und Tassen"
+  "flat.fact.kitchenware": "Grundausstattung in Küche und Bad"
 }
