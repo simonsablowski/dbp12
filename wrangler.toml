@@ -6,14 +6,14 @@ pages_build_output_dir = "./public"
 binding = "DB"
 database_name = "dbp12"
 # Nach `npx wrangler d1 create dbp12` die ausgegebene ID hier eintragen:
-database_id = "00000000-0000-0000-0000-000000000000"
+database_id = "0e873bf5-9ffd-4d76-a71b-d65536b16d36"
 migrations_dir = "migrations"
 
 [vars]
 # Absender für E-Mails (Domain muss bei Resend verifiziert sein)
 MAIL_FROM = "DBP12 <buchung@example.com>"
 # Öffentliche Basis-URL, wird in E-Mails und für Stripe-Rücksprünge verwendet
-PUBLIC_URL = "http://localhost:8788"
+PUBLIC_URL = "https://dbp12.pages.dev"
 
 # Secrets (nicht hier eintragen, sondern mit `npx wrangler pages secret put NAME`):
 #   ADMIN_TOKEN        Passwort für /admin.html
