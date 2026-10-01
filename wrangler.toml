@@ -1,0 +1,24 @@
+name = "dbp12"
+compatibility_date = "2026-09-01"
+pages_build_output_dir = "./public"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "dbp12"
+# Nach `npx wrangler d1 create dbp12` die ausgegebene ID hier eintragen:
+database_id = "00000000-0000-0000-0000-000000000000"
+migrations_dir = "migrations"
+
+[vars]
+# Absender für E-Mails (Domain muss bei Resend verifiziert sein)
+MAIL_FROM = "DBP12 <buchung@example.com>"
+# Öffentliche Basis-URL, wird in E-Mails und für Stripe-Rücksprünge verwendet
+PUBLIC_URL = "http://localhost:8788"
+
+# Secrets (nicht hier eintragen, sondern mit `npx wrangler pages secret put NAME`):
+#   ADMIN_TOKEN        Passwort für /admin.html
+#   HOST_EMAIL         Deine E-Mail-Adresse für Buchungsbenachrichtigungen
+#   RESEND_API_KEY     API-Key für den E-Mail-Versand (resend.com)
+#   CALENDAR_TOKEN     Geheimer Token für den iCal-Feed (/api/calendar?token=...)
+#   STRIPE_SECRET_KEY  erst bei Online-Zahlung nötig
+#   STRIPE_WEBHOOK_SECRET  erst bei Online-Zahlung nötig

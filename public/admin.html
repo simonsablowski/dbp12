@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Belegung verwalten · DBP12</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="admin">
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="./">DBP<span>12</span></a>
+      <nav class="mainnav"><span>Verwaltung</span></nav>
+      <button type="button" class="linkish" id="logout" hidden>Abmelden</button>
+    </div>
+  </header>
+
+  <main class="wrap section" style="padding-top:40px">
+    <form id="login" class="summary-card" style="max-width:420px">
+      <h2>Anmelden</h2>
+      <label><span>Passwort (ADMIN_TOKEN)</span><input type="password" id="token" autocomplete="current-password" required></label>
+      <p class="form-error" id="login-error" hidden></p>
+      <p><button class="btn" type="submit">Anmelden</button></p>
+    </form>
+
+    <div id="panel" hidden>
+      <h2>Belegung</h2>
+      <form class="tools" id="block-form">
+        <label><span>Sperren von (Anreise)</span><input type="date" id="b-from" required></label>
+        <label><span>bis (Abreise)</span><input type="date" id="b-to" required></label>
+        <label><span>Notiz</span><input id="b-note" placeholder="z. B. Eigennutzung, Handwerker"></label>
+        <button class="btn" type="submit">Zeitraum sperren</button>
+        <label class="check" style="margin-left:auto"><input type="checkbox" id="show-all"><span>auch vergangene und stornierte zeigen</span></label>
+      </form>
+      <p class="form-error" id="panel-error" hidden></p>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Nr.</th><th>Status</th><th>Anreise</th><th>Abreise</th><th>Gast</th><th>Personen</th><th>Betrag</th><th>Zahlung</th><th>Nachricht / Notiz</th><th></th></tr></thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+      <p class="small">Stornierte Buchungen geben den Zeitraum sofort wieder frei. Gäste werden dabei nicht automatisch benachrichtigt.</p>
+    </div>
+  </main>
+
+  <script src="js/admin.js" type="module"></script>
+</body>
+</html>

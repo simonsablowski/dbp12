@@ -1,0 +1,132 @@
+{
+  "_comment": "Fotos austauschen: Datei in images/gallery/ bzw. images/area/ ablegen und hier eintragen. Reihenfolge = Reihenfolge auf der Seite. 'hero' ist das große Bild oben.",
+  "hero": "images/gallery/fensterblick.webp",
+  "photos": [
+    {
+      "src": "images/gallery/wohnen.webp",
+      "alt": {
+        "de": "Wohnen und Essen (KI-Visualisierung)",
+        "en": "Living and dining room (AI visualisation)"
+      },
+      "w": 1106,
+      "h": 827
+    },
+    {
+      "src": "images/gallery/schlafen.webp",
+      "alt": {
+        "de": "Schlafzimmer (KI-Visualisierung)",
+        "en": "Bedroom (AI visualisation)"
+      },
+      "w": 1104,
+      "h": 830
+    },
+    {
+      "src": "images/gallery/kueche.webp",
+      "alt": {
+        "de": "Küche",
+        "en": "Kitchen"
+      },
+      "w": 1106,
+      "h": 830
+    },
+    {
+      "src": "images/gallery/bad.webp",
+      "alt": {
+        "de": "Bad mit bodengleicher Dusche",
+        "en": "Bathroom with walk-in shower"
+      },
+      "w": 1106,
+      "h": 830
+    },
+    {
+      "src": "images/gallery/flur.webp",
+      "alt": {
+        "de": "Flur",
+        "en": "Hallway"
+      },
+      "w": 623,
+      "h": 830
+    },
+    {
+      "src": "images/gallery/fensterblick.webp",
+      "alt": {
+        "de": "Blick aus dem Fenster auf die Spree",
+        "en": "View from the window across the river Spree"
+      },
+      "w": 1106,
+      "h": 829
+    },
+    {
+      "src": "images/gallery/eingang.webp",
+      "alt": {
+        "de": "Hauseingang Nr. 12",
+        "en": "Entrance of No. 12"
+      },
+      "w": 622,
+      "h": 830
+    },
+    {
+      "src": "images/gallery/garten.webp",
+      "alt": {
+        "de": "Haus vom Garten aus",
+        "en": "The house seen from the garden"
+      },
+      "w": 1106,
+      "h": 829
+    }
+  ],
+  "area": [
+    {
+      "src": "images/area/uferweg.webp",
+      "alt": {
+        "de": "Uferweg an der Rummelsburger Bucht",
+        "en": "Waterside path on Rummelsburg Bay"
+      },
+      "w": 1106,
+      "h": 830
+    },
+    {
+      "src": "images/area/weg-zum-wasser.webp",
+      "alt": {
+        "de": "Weg zum Wasser",
+        "en": "Path to the water"
+      },
+      "w": 1106,
+      "h": 829
+    },
+    {
+      "src": "images/area/park.webp",
+      "alt": {
+        "de": "Dora-Benjamin-Park mit Spielplatz",
+        "en": "Dora-Benjamin-Park with playground"
+      },
+      "w": 1106,
+      "h": 830
+    },
+    {
+      "src": "images/area/strasse.webp",
+      "alt": {
+        "de": "Blick von der Straße zur Spree",
+        "en": "View from the street towards the Spree"
+      },
+      "w": 1103,
+      "h": 830
+    },
+    {
+      "src": "images/area/supermarkt.webp",
+      "alt": {
+        "de": "Supermarkt um die Ecke",
+        "en": "Supermarket round the corner"
+      },
+      "w": 1047,
+      "h": 830
+    }
+  ],
+  "floorplan": {
+    "src": "images/grundriss.png",
+    "alt": {
+      "de": "Grundriss: Wohnen und Essen 23,8 m², Schlafzimmer 18,4 m², Flur, Garderobe, Bad, Abstellraum; insgesamt 57,5 m²",
+      "en": "Floor plan: living and dining 23.8 m², bedroom 18.4 m², hallway, dressing area, bathroom, storage room; 57.5 m² in total"
+    }
+  }
+}

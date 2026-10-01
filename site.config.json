@@ -1,0 +1,49 @@
+{
+  "_comment": "Zentrale Einstellungen. Nach einer Änderung neu deployen (npm run deploy).",
+
+  "currency": "EUR",
+
+  "pricing": {
+    "_comment": "Alle Beträge in Euro. Preis pro Nacht für die ganze Wohnung.",
+    "nightlyRateOneAdult": 100,
+    "nightlyRateTwoAdults": 160,
+    "childSurchargePerNight": 40,
+    "cleaningFee": 40,
+    "cityTaxPercent": 0,
+    "_cityTaxComment": "Berliner Übernachtungsteuer, falls ihr sie auf der Rechnung ausweisen wollt (Prozent vom Übernachtungspreis ohne Reinigung). 0 = nicht anzeigen."
+  },
+
+  "stay": {
+    "minNights": 1,
+    "maxNights": 10,
+    "maxAdults": 2,
+    "maxChildren": 2,
+    "bookingHorizonDays": 365,
+    "checkInFrom": "15:00",
+    "checkInUntil": "20:00",
+    "checkOutBy": "11:00"
+  },
+
+  "payments": {
+    "_comment": "Barzahlung ist Standard. Online-Zahlarten werden angezeigt, sind aber deaktiviert, bis onlineEnabled=true gesetzt und STRIPE_SECRET_KEY hinterlegt ist.",
+    "default": "cash",
+    "onlineEnabled": false,
+    "onlineMethods": ["card", "sepa_debit", "paypal"],
+    "pendingPaymentHoldMinutes": 35
+  },
+
+  "houseRulesVersion": "2026-10-01",
+
+  "property": {
+    "name": "Dora-Benjamin-Park 12",
+    "address": "Dora-Benjamin-Park 12, 10245 Berlin",
+    "registrationNumber": "",
+    "_registrationComment": "Registriernummer aus der Genehmigung (Zweckentfremdungsverbot). Wird im Footer angezeigt, sobald eingetragen."
+  },
+
+  "contact": {
+    "hostName": "Simon Sablowski",
+    "hostEmail": "",
+    "_hostEmailComment": "Wird auch per Secret HOST_EMAIL überschrieben. Empfänger der Buchungsbenachrichtigungen."
+  }
+}
