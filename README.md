@@ -101,11 +101,16 @@ Ablauf: Bei Online-Zahlung wird der Zeitraum 35 Minuten reserviert. Erst wenn St
 
 ## Lokal entwickeln
 
+Einmalig (Windows-Eingabeaufforderung):
 ```
-cp .dev.vars.example .dev.vars
-npm run db:local
+npm install
+copy .dev.vars.example .dev.vars
+```
+Danach jedes Mal:
+```
 npm run dev
 ```
+`npm run dev` legt die lokale Datenbank beim ersten Start automatisch an.
 Seite: http://localhost:8788, Verwaltung: http://localhost:8788/admin.html (Passwort aus `.dev.vars`).
 
 ## Aufbau

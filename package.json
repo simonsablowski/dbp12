@@ -3,9 +3,10 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "predev": "wrangler d1 migrations apply dbp12 --local",
+    "dev": "wrangler pages dev",
     "db:local": "wrangler d1 migrations apply dbp12 --local",
     "db:remote": "wrangler d1 migrations apply dbp12 --remote",
-    "dev": "wrangler pages dev",
     "deploy": "wrangler pages deploy"
   },
   "devDependencies": {
