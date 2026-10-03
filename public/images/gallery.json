@@ -23,8 +23,8 @@
         "de": "Wohnzimmer mit Fernseher",
         "en": "Living room with TV"
       },
-      "w": 1065,
-      "h": 710
+      "w": 1800,
+      "h": 1200
     },
     {
       "src": "images/gallery/kueche.webp",
@@ -41,8 +41,8 @@
         "de": "Schlafzimmer mit Doppelbett 160 × 200 cm",
         "en": "Bedroom with 160 × 200 cm double bed"
       },
-      "w": 1184,
-      "h": 789
+      "w": 1800,
+      "h": 1200
     },
     {
       "src": "images/gallery/ausziehbett.webp",
