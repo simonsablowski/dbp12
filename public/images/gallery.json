@@ -1,24 +1,30 @@
 {
-  "_comment": "Fotos austauschen: Datei in images/gallery/ bzw. images/area/ ablegen und hier eintragen. Reihenfolge = Reihenfolge auf der Seite. 'hero' ist das große Bild oben. 'caption' = Bildunterschrift unter dem Vorschaubild, 'contain' = Bild nicht beschneiden (z. B. Grundriss).",
-  "hero": "images/gallery/fensterblick.webp",
+  "_comment": "Fotos austauschen: Datei in images/gallery/ bzw. images/area/ ablegen und hier eintragen. Reihenfolge = Reihenfolge auf der Seite. 'hero' ist das große Bild oben (muss nicht in der Galerie vorkommen). 'contain' = Bild nicht beschneiden (z. B. Grundriss).",
+  "hero": {
+    "src": "images/gallery/fensterblick.webp",
+    "alt": {
+      "de": "Blick aus dem Fenster auf die Spree",
+      "en": "View from the window across the river Spree"
+    }
+  },
   "photos": [
     {
-      "src": "images/gallery/wohnen.webp",
+      "src": "images/gallery/essplatz.webp",
       "alt": {
-        "de": "Wohnen und Essen (KI-Visualisierung)",
-        "en": "Living and dining room (AI visualisation)"
+        "de": "Wohnzimmer mit Essplatz",
+        "en": "Living room with dining table"
       },
-      "w": 1106,
-      "h": 827
+      "w": 1800,
+      "h": 1200
     },
     {
-      "src": "images/gallery/schlafen.webp",
+      "src": "images/gallery/wohnzimmer-tv.webp",
       "alt": {
-        "de": "Schlafzimmer (KI-Visualisierung)",
-        "en": "Bedroom (AI visualisation)"
+        "de": "Wohnzimmer mit Fernseher",
+        "en": "Living room with TV"
       },
-      "w": 1104,
-      "h": 830
+      "w": 1065,
+      "h": 710
     },
     {
       "src": "images/gallery/kueche.webp",
@@ -26,8 +32,35 @@
         "de": "Küche",
         "en": "Kitchen"
       },
-      "w": 1106,
-      "h": 830
+      "w": 1800,
+      "h": 1200
+    },
+    {
+      "src": "images/gallery/schlafzimmer.webp",
+      "alt": {
+        "de": "Schlafzimmer mit Bett 180 × 200 cm",
+        "en": "Bedroom with 180 × 200 cm bed"
+      },
+      "w": 1184,
+      "h": 789
+    },
+    {
+      "src": "images/gallery/ausziehbett.webp",
+      "alt": {
+        "de": "Ausziehbett (ausgezogen 160 × 200 cm) und Kommode",
+        "en": "Pull-out bed (160 × 200 cm when extended) and chest of drawers"
+      },
+      "w": 1800,
+      "h": 1200
+    },
+    {
+      "src": "images/gallery/bad-waschbecken.webp",
+      "alt": {
+        "de": "Bad: Waschbecken",
+        "en": "Bathroom: washbasin"
+      },
+      "w": 1800,
+      "h": 1200
     },
     {
       "src": "images/gallery/bad.webp",
@@ -35,35 +68,8 @@
         "de": "Bad mit bodengleicher Dusche",
         "en": "Bathroom with walk-in shower"
       },
-      "w": 1106,
-      "h": 830
-    },
-    {
-      "src": "images/gallery/fensterblick.webp",
-      "alt": {
-        "de": "Blick aus dem Fenster auf die Spree",
-        "en": "View from the window across the river Spree"
-      },
-      "w": 1106,
-      "h": 829
-    },
-    {
-      "src": "images/gallery/eingang.webp",
-      "alt": {
-        "de": "Hauseingang Nr. 12",
-        "en": "Entrance of No. 12"
-      },
-      "w": 622,
-      "h": 830
-    },
-    {
-      "src": "images/gallery/garten.webp",
-      "alt": {
-        "de": "Haus vom Garten aus",
-        "en": "The house seen from the garden"
-      },
-      "w": 1106,
-      "h": 829
+      "w": 1800,
+      "h": 1200
     },
     {
       "src": "images/grundriss.png",

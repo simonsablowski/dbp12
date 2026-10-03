@@ -41,7 +41,7 @@ function renderMedia() {
   const g = state.gallery;
   if (!g) return;
   const l = lang();
-  const heroPhoto = g.photos.find((p) => p.src === g.hero) || g.photos[0];
+  const heroPhoto = (g.hero && g.hero.src ? g.hero : g.photos.find((p) => p.src === g.hero)) || g.photos[0];
   const hero = $("#hero-img");
   if (heroPhoto) { hero.src = heroPhoto.src; hero.alt = heroPhoto.alt[l]; }
   const fill = (box, list) => {
