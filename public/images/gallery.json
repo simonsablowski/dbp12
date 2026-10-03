@@ -11,38 +11,38 @@
     {
       "src": "images/gallery/essplatz.webp",
       "alt": {
-        "de": "Wohnzimmer mit Essplatz",
-        "en": "Living room with dining table"
+        "de": "Wohnzimmer mit Essplatz (Dekoration digital ergänzt)",
+        "en": "Living room with dining table (decoration added digitally)"
       },
-      "w": 1800,
-      "h": 1200
+      "w": 1536,
+      "h": 1024
     },
     {
       "src": "images/gallery/wohnzimmer-tv.webp",
       "alt": {
-        "de": "Wohnzimmer mit Fernseher",
-        "en": "Living room with TV"
+        "de": "Wohnzimmer mit Fernseher (Dekoration digital ergänzt)",
+        "en": "Living room with TV (decoration added digitally)"
       },
-      "w": 1800,
-      "h": 1200
+      "w": 1536,
+      "h": 1024
     },
     {
       "src": "images/gallery/kueche.webp",
       "alt": {
-        "de": "Küche",
-        "en": "Kitchen"
+        "de": "Küche (Dekoration digital ergänzt)",
+        "en": "Kitchen (decoration added digitally)"
       },
-      "w": 1800,
-      "h": 1200
+      "w": 1536,
+      "h": 1024
     },
     {
       "src": "images/gallery/schlafzimmer.webp",
       "alt": {
-        "de": "Schlafzimmer mit Doppelbett 160 × 200 cm",
-        "en": "Bedroom with 160 × 200 cm double bed"
+        "de": "Schlafzimmer mit Doppelbett 160 × 200 cm (Bettwäsche digital ergänzt)",
+        "en": "Bedroom with 160 × 200 cm double bed (bedding added digitally)"
       },
-      "w": 1800,
-      "h": 1200
+      "w": 1536,
+      "h": 1024
     },
     {
       "src": "images/gallery/ausziehbett.webp",
@@ -50,8 +50,8 @@
         "de": "Ausziehbett (ausgezogen 160 × 200 cm) und Kommode",
         "en": "Pull-out bed (160 × 200 cm when extended) and chest of drawers"
       },
-      "w": 1800,
-      "h": 1200
+      "w": 1536,
+      "h": 1024
     },
     {
       "src": "images/gallery/bad-waschbecken.webp",
