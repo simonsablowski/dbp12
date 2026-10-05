@@ -11,8 +11,8 @@
     {
       "src": "images/gallery/essplatz.webp",
       "alt": {
-        "de": "Wohnzimmer mit Essplatz (Dekoration digital ergänzt)",
-        "en": "Living room with dining table (decoration added digitally)"
+        "de": "Wohnzimmer mit Essplatz",
+        "en": "Living room with dining table"
       },
       "w": 1536,
       "h": 1024
@@ -20,26 +20,26 @@
     {
       "src": "images/gallery/wohnzimmer-tv.webp",
       "alt": {
-        "de": "Wohnzimmer mit Fernseher (Dekoration digital ergänzt)",
-        "en": "Living room with TV (decoration added digitally)"
+        "de": "Wohnzimmer mit Fernseher",
+        "en": "Living room with TV"
       },
-      "w": 1536,
-      "h": 1024
+      "w": 1445,
+      "h": 963
     },
     {
       "src": "images/gallery/kueche.webp",
       "alt": {
-        "de": "Küche (Dekoration digital ergänzt)",
-        "en": "Kitchen (decoration added digitally)"
+        "de": "Küche",
+        "en": "Kitchen"
       },
-      "w": 1536,
-      "h": 1024
+      "w": 1445,
+      "h": 963
     },
     {
       "src": "images/gallery/schlafzimmer.webp",
       "alt": {
-        "de": "Schlafzimmer mit Doppelbett 160 × 200 cm (Bettwäsche digital ergänzt)",
-        "en": "Bedroom with 160 × 200 cm double bed (bedding added digitally)"
+        "de": "Schlafzimmer mit Doppelbett 160 × 200 cm",
+        "en": "Bedroom with 160 × 200 cm double bed"
       },
       "w": 1536,
       "h": 1024
