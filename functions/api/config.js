@@ -15,6 +15,6 @@ export async function onRequestGet({ env }) {
     },
     houseRulesVersion: config.houseRulesVersion,
     property: { name: config.property.name, registrationNumber: config.property.registrationNumber },
-    contact: { name: config.contact.hostName, whatsappHandle: config.contact.whatsappHandle || "" },
+    contact: { name: config.contact.hostName, whatsappHandle: config.contact.whatsappHandle || "", email: config.contact.email || "" },
   });
 }

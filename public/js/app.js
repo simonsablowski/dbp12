@@ -389,6 +389,10 @@ function renderAll() {
   $("#contact-wa").hidden = !wa;
   $("#contact-handle").textContent = wa;
   $("#contact-copy").textContent = t("contact.copy");
+  const mail = (c.contact && c.contact.email) || "";
+  $("#contact-mail").hidden = !mail;
+  $("#contact-mail-link").textContent = mail;
+  $("#contact-mail-link").href = mail ? `mailto:${mail}` : "";
   renderMedia();
   renderGuestSelects();
   renderPayments();
