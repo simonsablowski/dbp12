@@ -116,22 +116,6 @@
         <h2 data-i18n="book.title"></h2>
         <p class="lead-sm" id="book-lead" data-i18n="book.lead"></p>
 
-        <div id="booking-closed" class="closed" hidden>
-          <div class="closed-text">
-            <h3 data-i18n="closed.title"></h3>
-            <p data-i18n="closed.text"></p>
-            <p class="contact-lines">
-              <span id="closed-wa" hidden>WhatsApp: <strong id="closed-handle"></strong></span>
-              <span id="closed-mail" hidden><span data-i18n="contact.mailLabel"></span> <a id="closed-mail-link" href=""></a></span>
-            </p>
-            <p class="small" id="closed-how" data-i18n="contact.how" hidden></p>
-          </div>
-          <div class="closed-rates">
-            <h3 data-i18n="price.title"></h3>
-            <div class="rate-info"></div>
-          </div>
-        </div>
-
         <div id="booking-done" class="done" hidden></div>
 
         <form id="booking-form" class="booking" novalidate>
@@ -145,10 +129,11 @@
               <div class="cal-legend">
                 <span><i class="sw sw-free"></i><span data-i18n="book.legend.free"></span></span>
                 <span><i class="sw sw-booked"></i><span data-i18n="book.legend.booked"></span></span>
-                <span><i class="sw sw-sel"></i><span data-i18n="book.legend.selected"></span></span>
+                <span class="open-only"><i class="sw sw-sel"></i><span data-i18n="book.legend.selected"></span></span>
               </div>
               <p class="cal-status" id="cal-status" aria-live="polite"></p>
-              <p class="cal-foot"><span id="cal-minmax"></span> <button type="button" class="linkish" id="cal-reset" data-i18n="book.reset" hidden></button></p>
+              <p class="cal-foot closed-only"><span data-i18n="closed.calFoot"></span> <a href="#contact" data-i18n="closed.calLink"></a></p>
+              <p class="cal-foot open-only"><span id="cal-minmax"></span> <button type="button" class="linkish" id="cal-reset" data-i18n="book.reset" hidden></button></p>
             </div>
 
             <fieldset>

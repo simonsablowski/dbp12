@@ -128,9 +128,10 @@
   "price.once": "{amount} einmalig",
   "price.seasonNote": "Hauptsaison: April bis Oktober sowie 20. Dezember bis 2. Januar.",
   "closed.title": "Buchung bald möglich",
-  "closed.lead": "Die Online-Buchung wird gerade vorbereitet.",
-  "closed.text": "Bis dahin kannst du Simon gern schreiben, wenn du dich für einen Zeitraum interessierst oder Fragen zur Wohnung hast.",
+  "closed.lead": "Der Kalender zeigt, welche Tage frei sind. Die Online-Buchung wird gerade vorbereitet.",
   "closed.cta": "Preise und Anfrage",
   "closed.nav": "Anfragen",
-  "err.booking_closed": "Die Online-Buchung ist noch nicht geöffnet. Schreib uns gern eine Nachricht."
+  "err.booking_closed": "Die Online-Buchung ist noch nicht geöffnet. Schreib uns gern eine Nachricht.",
+  "closed.calFoot": "Für eine Anfrage schreib Simon gern direkt.",
+  "closed.calLink": "Zum Kontakt"
 }

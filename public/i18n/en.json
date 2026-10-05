@@ -128,9 +128,10 @@
   "price.once": "{amount} once",
   "price.seasonNote": "High season: April to October and 20 December to 2 January.",
   "closed.title": "Booking available soon",
-  "closed.lead": "Online booking is being prepared.",
-  "closed.text": "Until then, feel free to message Simon if you are interested in certain dates or have questions about the flat.",
+  "closed.lead": "The calendar shows which days are available. Online booking is being prepared.",
   "closed.cta": "Prices and enquiries",
   "closed.nav": "Enquire",
-  "err.booking_closed": "Online booking is not open yet. Feel free to send us a message."
+  "err.booking_closed": "Online booking is not open yet. Feel free to send us a message.",
+  "closed.calFoot": "For an enquiry, feel free to message Simon directly.",
+  "closed.calLink": "Go to contact"
 }

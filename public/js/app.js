@@ -182,7 +182,13 @@ function renderCalendar() {
       b.disabled = !selectable && d !== state.start;
       b.setAttribute("aria-label", fmtDate(d, { weekday: "long", day: "numeric", month: "long", year: "numeric" }));
       if (d === state.start || d === state.end) b.setAttribute("aria-pressed", "true");
-      b.addEventListener("click", () => dayClick(d));
+      if (state.closed) {
+        // Buchungen gesperrt: Kalender zeigt nur die Belegung
+        b.disabled = !validStart(d);
+        b.tabIndex = -1;
+      } else {
+        b.addEventListener("click", () => dayClick(d));
+      }
       grid.appendChild(b);
     }
     wrap.appendChild(grid);
@@ -193,6 +199,7 @@ function renderCalendar() {
   $("#cal-next").disabled = addMonths(state.view, 1) > monthStart(horizonEnd());
 
   const status = $("#cal-status");
+  if (state.closed) { status.textContent = t("closed.title"); return; }
   if (state.start && state.end) {
     const n = nights(state.start, state.end);
     status.textContent = t("book.selected", {
@@ -419,19 +426,14 @@ function renderAll() {
   $("#contact-mail-link").href = mail ? `mailto:${mail}` : "";
   // Buchungen gesperrt: Formular ausblenden, Hinweis mit Preisen und Kontakt zeigen
   const closed = c.bookingEnabled === false;
-  $("#booking-form").hidden = closed;
-  $("#booking-closed").hidden = !closed;
+  state.closed = closed;
+  $("#booking-form").classList.toggle("is-closed", closed);
   if (closed) {
     $("#book-lead").textContent = t("closed.lead");
     $("#hero-cta").textContent = t("closed.cta");
     document.querySelectorAll('[data-i18n="nav.book"]').forEach((el) => { el.textContent = t("closed.nav"); });
-    $("#closed-wa").hidden = !wa;
-    $("#closed-handle").textContent = wa;
-    $("#closed-how").hidden = !wa;
-    $("#closed-mail").hidden = !mail;
-    $("#closed-mail-link").textContent = mail;
-    $("#closed-mail-link").href = mail ? `mailto:${mail}` : "";
     renderMedia();
+    renderCalendar();
     renderRates();
     return;
   }
