@@ -82,15 +82,6 @@
   ],
   "area": [
     {
-      "src": "images/area/uferweg.webp",
-      "alt": {
-        "de": "Uferweg an der Rummelsburger Bucht",
-        "en": "Waterside path on Rummelsburg Bay"
-      },
-      "w": 1106,
-      "h": 830
-    },
-    {
       "src": "images/area/weg-zum-wasser.webp",
       "alt": {
         "de": "Weg zum Wasser",
@@ -124,6 +115,15 @@
         "en": "Supermarket round the corner"
       },
       "w": 1047,
+      "h": 830
+    },
+    {
+      "src": "images/area/uferweg.webp",
+      "alt": {
+        "de": "Uferweg an der Rummelsburger Bucht",
+        "en": "Waterside path on Rummelsburg Bay"
+      },
+      "w": 1106,
       "h": 830
     }
   ]
