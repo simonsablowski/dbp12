@@ -31,6 +31,10 @@
     "checkOutBy": "11:00"
   },
 
+  "booking": {
+    "_comment": "enabled=false sperrt neue Buchungen. Die Seite zeigt dann „Buchung bald möglich“ mit Preisen und Kontakt. Auf true setzen und neu veröffentlichen, sobald die Registriernummer vorliegt.",
+    "enabled": false
+  },
   "payments": {
     "_comment": "Barzahlung ist Standard. Online-Zahlarten werden angezeigt, sind aber deaktiviert, bis onlineEnabled=true gesetzt und STRIPE_SECRET_KEY hinterlegt ist.",
     "default": "cash",

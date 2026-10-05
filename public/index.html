@@ -35,7 +35,7 @@
           <h1 data-i18n="hero.title"></h1>
           <p class="lead" data-i18n="hero.lead"></p>
           <p class="hero-actions">
-            <a class="btn" href="#book" data-i18n="hero.cta"></a>
+            <a class="btn" href="#book" id="hero-cta" data-i18n="hero.cta"></a>
             <span class="from" id="hero-from"></span>
           </p>
         </div>
@@ -114,7 +114,23 @@
     <section id="book" class="section section-tint">
       <div class="wrap">
         <h2 data-i18n="book.title"></h2>
-        <p class="lead-sm" data-i18n="book.lead"></p>
+        <p class="lead-sm" id="book-lead" data-i18n="book.lead"></p>
+
+        <div id="booking-closed" class="closed" hidden>
+          <div class="closed-text">
+            <h3 data-i18n="closed.title"></h3>
+            <p data-i18n="closed.text"></p>
+            <p class="contact-lines">
+              <span id="closed-wa" hidden>WhatsApp: <strong id="closed-handle"></strong></span>
+              <span id="closed-mail" hidden><span data-i18n="contact.mailLabel"></span> <a id="closed-mail-link" href=""></a></span>
+            </p>
+            <p class="small" id="closed-how" data-i18n="contact.how" hidden></p>
+          </div>
+          <div class="closed-rates">
+            <h3 data-i18n="price.title"></h3>
+            <div class="rate-info"></div>
+          </div>
+        </div>
 
         <div id="booking-done" class="done" hidden></div>
 

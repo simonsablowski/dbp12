@@ -16,6 +16,9 @@ export async function onRequestPost({ request, env, waitUntil }) {
   // Honeypot gegen einfache Spam-Bots: das Feld ist für Menschen unsichtbar
   if (body.website) return error("rejected");
 
+  // Buchungen gesperrt (site.config.json: booking.enabled)
+  if (config.booking && config.booking.enabled === false) return error("booking_closed", 403);
+
   const stay = {
     checkIn: body.checkIn,
     checkOut: body.checkOut,

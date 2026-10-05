@@ -13,6 +13,7 @@ export async function onRequestGet({ env }) {
       onlineEnabled: onlineReady,
       onlineMethods: config.payments.onlineMethods,
     },
+    bookingEnabled: !(config.booking && config.booking.enabled === false),
     houseRulesVersion: config.houseRulesVersion,
     property: { name: config.property.name, registrationNumber: config.property.registrationNumber },
     contact: { name: config.contact.hostName, whatsappHandle: config.contact.whatsappHandle || "", email: config.contact.email || "" },

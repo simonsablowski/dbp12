@@ -10,6 +10,7 @@ Cloudflare Pages liefert die Seite aus, Pages Functions bilden die API, eine Clo
 - Hausordnung & Mietbedingungen in `public/content/house-rules.de.html` und `.en.html`. Vor der Buchung muss sie per Checkbox akzeptiert werden. Gespeichert werden Zeitpunkt und Fassung (`houseRulesVersion`).
 - Kalender mit belegten Tagen. Abreisetag und nächster Anreisetag dürfen gleich sein.
 - Preisberechnung nach `site.config.json` (wird im Browser angezeigt und auf dem Server noch einmal berechnet).
+- Buchungen lassen sich sperren: `booking.enabled` in `site.config.json`. Bei `false` zeigt die Seite „Buchung bald möglich“ mit Preisen und Kontakt, und die API lehnt Buchungen ab.
 - Barzahlung bei Schlüsselübergabe als Standard. Buchung ist sofort verbindlich.
 - Karte, SEPA-Lastschrift und PayPal über Stripe Checkout sind eingebaut, aber deaktiviert.
 - Bestätigungsmail an den Gast (in seiner Sprache) und Benachrichtigung an dich.

@@ -244,11 +244,12 @@ function renderRates() {
   const rows = p.nightly.low.map((lowRate, i) =>
     `<tr><td>${i === 0 ? t("price.person1") : t("price.persons", { n: i + 1 })}</td><td>${fmtMoney(lowRate, cur)}</td><td>${fmtMoney(p.nightly.high[i], cur)}</td></tr>`
   );
-  $("#rate-info").innerHTML =
+  const html =
     `<table class="rates"><thead><tr><th>${t("price.perNight")}</th><th>${t("price.low")}</th><th>${t("price.high")}</th></tr></thead><tbody>${rows.join("")}` +
     `<tr><td>${t("price.perChild")}</td><td colspan="2">+ ${fmtMoney(p.childSurchargePerNight, cur)}</td></tr>` +
     `<tr><td>${t("price.cleaning")}</td><td colspan="2">${t("price.once", { amount: fmtMoney(p.cleaningFee, cur) })}</td></tr></tbody></table>` +
     `<p class="rates-note">${t("price.seasonNote")}</p>`;
+  document.querySelectorAll(".rate-info").forEach((el) => { el.innerHTML = html; });
 }
 
 function renderPrice() {
@@ -416,6 +417,24 @@ function renderAll() {
   $("#contact-mail").hidden = !mail;
   $("#contact-mail-link").textContent = mail;
   $("#contact-mail-link").href = mail ? `mailto:${mail}` : "";
+  // Buchungen gesperrt: Formular ausblenden, Hinweis mit Preisen und Kontakt zeigen
+  const closed = c.bookingEnabled === false;
+  $("#booking-form").hidden = closed;
+  $("#booking-closed").hidden = !closed;
+  if (closed) {
+    $("#book-lead").textContent = t("closed.lead");
+    $("#hero-cta").textContent = t("closed.cta");
+    document.querySelectorAll('[data-i18n="nav.book"]').forEach((el) => { el.textContent = t("closed.nav"); });
+    $("#closed-wa").hidden = !wa;
+    $("#closed-handle").textContent = wa;
+    $("#closed-how").hidden = !wa;
+    $("#closed-mail").hidden = !mail;
+    $("#closed-mail-link").textContent = mail;
+    $("#closed-mail-link").href = mail ? `mailto:${mail}` : "";
+    renderMedia();
+    renderRates();
+    return;
+  }
   renderMedia();
   renderGuestSelects();
   renderPayments();
