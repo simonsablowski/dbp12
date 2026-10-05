@@ -64,7 +64,7 @@ npx wrangler pages secret put HOST_EMAIL        # deine Adresse für Benachricht
 npx wrangler pages secret put RESEND_API_KEY    # E-Mail-Versand
 npx wrangler pages secret put CALENDAR_TOKEN    # langer Zufallswert für den iCal-Feed
 ```
-In `wrangler.toml` noch `MAIL_FROM` und `PUBLIC_URL` auf die echte Domain setzen.
+`MAIL_FROM` und `PUBLIC_URL` in `wrangler.toml` stehen auf `dbp12.simsab.net` (siehe Abschnitt Domain).
 
 Deployen:
 ```
@@ -73,7 +73,7 @@ npm run deploy
 
 ### E-Mail (Resend)
 
-1. Konto bei resend.com anlegen, die Absender-Domain (z. B. `notmybiz.com` oder `simsab.net`) hinzufügen.
+1. Konto bei resend.com anlegen, die Absender-Domain `dbp12.simsab.net` hinzufügen.
 2. Resend zeigt DNS-Einträge (SPF/DKIM). Diese bei GoDaddy eintragen.
 3. API-Key erzeugen und als `RESEND_API_KEY` setzen.
 
@@ -81,7 +81,15 @@ Solange kein Key gesetzt ist, werden Mails nur ins Log geschrieben. Buchungen fu
 
 ### Domain
 
-In Cloudflare Pages unter *Custom domains* die Subdomain hinzufügen (z. B. `wohnung.simsab.net`). Cloudflare nennt einen CNAME-Eintrag, den du bei GoDaddy anlegst.
+Die Seite soll unter `https://dbp12.simsab.net` laufen. Reihenfolge:
+
+1. Cloudflare-Dashboard, *Workers & Pages*, Projekt `dbp12`, *Custom domains*, *Set up a custom domain*: `dbp12.simsab.net` eintragen.
+2. Bei GoDaddy in der DNS-Verwaltung von `simsab.net` einen CNAME anlegen: Name `dbp12`, Wert `dbp12.pages.dev`.
+3. Warten, bis Cloudflare die Domain als *Active* anzeigt und `https://dbp12.simsab.net` im Browser lädt.
+4. `npm run deploy`. Damit gelten `PUBLIC_URL` (Links in E-Mails, Rücksprung von Stripe) und der Canonical-Link in `public/index.html`.
+5. Zum Schluss in `wrangler.toml` `REDIRECT_OLD_HOST = "true"` setzen und noch einmal `npm run deploy`. Ab dann leitet `dbp12.pages.dev` auf die neue Adresse um (`functions/_middleware.js`). Die API unter der alten Adresse bleibt erreichbar, damit ein abonnierter Kalender-Feed weiterläuft.
+
+Der Absender `MAIL_FROM` nutzt `buchung@dbp12.simsab.net`. Dafür muss `dbp12.simsab.net` bei Resend als Absender-Domain verifiziert sein (siehe oben).
 
 ### Verwaltung absichern
 

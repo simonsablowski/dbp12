@@ -11,9 +11,12 @@ migrations_dir = "migrations"
 
 [vars]
 # Absender für E-Mails (Domain muss bei Resend verifiziert sein)
-MAIL_FROM = "DBP12 <buchung@example.com>"
+MAIL_FROM = "Dora-Benjamin-Park 12 <buchung@dbp12.simsab.net>"
 # Öffentliche Basis-URL, wird in E-Mails und für Stripe-Rücksprünge verwendet
-PUBLIC_URL = "https://dbp12.pages.dev"
+PUBLIC_URL = "https://dbp12.simsab.net"
+# Alte Adresse auf die neue umleiten. Erst auf "true" setzen und neu veröffentlichen,
+# wenn https://dbp12.simsab.net im Browser funktioniert. Vorher wäre die Seite nicht erreichbar.
+REDIRECT_OLD_HOST = "false"
 
 # Secrets (nicht hier eintragen, sondern mit `npx wrangler pages secret put NAME`):
 #   ADMIN_TOKEN        Passwort für /admin.html
