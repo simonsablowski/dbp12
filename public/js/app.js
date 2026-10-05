@@ -159,7 +159,7 @@ function renderCalendar() {
     wrap.innerHTML = `<p class="cal-title">${title}</p>`;
     const grid = document.createElement("div");
     grid.className = "cal-grid";
-    dows.forEach((d) => { const s = document.createElement("span"); s.className = "cal-dow"; s.textContent = d.replace(".", ""); grid.appendChild(s); });
+    dows.forEach((d) => { const s = document.createElement("span"); s.className = "cal-dow"; s.textContent = d.replace(".", "").slice(0, 2); grid.appendChild(s); });
     const offset = (parse(first).getUTCDay() + 6) % 7;
     for (let i = 0; i < offset; i++) grid.appendChild(document.createElement("span"));
     const nextMonth = addMonths(first, 1);
