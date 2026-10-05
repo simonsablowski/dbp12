@@ -36,7 +36,7 @@ const T = {
     checkin: (f, u) => `Check-in zwischen ${f} und ${u} Uhr`,
     checkout: (b) => `Check-out bis ${b} Uhr`,
     rules: "Du hast die Hausordnung & Mietbedingungen akzeptiert. Du findest sie jederzeit hier:",
-    contact: "Bitte schreib uns kurz vor der Anreise, wann du ungefähr ankommst. Bei Fragen antworte einfach auf diese E-Mail.",
+    contact: (wa) => `Bitte schreib uns kurz vor der Anreise, wann du ungefähr ankommst. Bei Fragen antworte einfach auf diese E-Mail${wa ? ` oder schreib uns auf WhatsApp (${wa})` : ""}.`,
     bye: "Bis bald!",
     nights: "Nächte",
   },
@@ -57,7 +57,7 @@ const T = {
     checkin: (f, u) => `Check-in between ${f} and ${u}`,
     checkout: (b) => `Check-out by ${b}`,
     rules: "You have accepted the house rules and terms. You can read them again here:",
-    contact: "Please let us know shortly before your arrival roughly when you will arrive. If you have questions, simply reply to this email.",
+    contact: (wa) => `Please let us know shortly before your arrival roughly when you will arrive. If you have questions, simply reply to this email${wa ? ` or message us on WhatsApp (${wa})` : ""}.`,
     bye: "See you soon!",
     nights: "nights",
   },
@@ -105,7 +105,7 @@ export async function sendGuestConfirmation(env, b) {
       ${row(t.payment, b.payment_method === "cash" ? t.cash : t.online)}
     </table>
     <p>${t.rules}<br><a href="${env.PUBLIC_URL}/?lang=${lang}#rules" style="color:#56704f">${env.PUBLIC_URL}/?lang=${lang}#rules</a></p>
-    <p>${t.contact}</p>
+    <p>${escapeHtml(t.contact(config.contact.whatsappHandle))}</p>
     <p>${t.bye}<br>${escapeHtml(config.contact.hostName)}</p>`);
   return send(env, { to: b.guest_email, subject: t.subject(b.id), html, replyTo: env.HOST_EMAIL || config.contact.hostEmail || undefined });
 }

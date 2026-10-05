@@ -385,6 +385,10 @@ function renderAll() {
   $("#hero-from").textContent = t("hero.from", { price: fmtMoney(c.pricing.nightlyRateOneAdult, c.currency) });
   const reg = $("#reg-nr");
   if (c.property.registrationNumber) { reg.textContent = t("footer.registration", { nr: c.property.registrationNumber }); reg.hidden = false; }
+  const wa = (c.contact && c.contact.whatsappHandle) || "";
+  $("#contact-wa").hidden = !wa;
+  $("#contact-handle").textContent = wa;
+  $("#contact-copy").textContent = t("contact.copy");
   renderMedia();
   renderGuestSelects();
   renderPayments();
@@ -433,6 +437,12 @@ async function init() {
   $("#adults").addEventListener("change", renderPrice);
   $("#children").addEventListener("change", renderPrice);
   $("#booking-form").addEventListener("submit", submit);
+  $("#contact-copy").addEventListener("click", async () => {
+    const btn = $("#contact-copy");
+    try { await navigator.clipboard.writeText($("#contact-handle").textContent); btn.textContent = t("contact.copied"); }
+    catch { /* Zwischenablage nicht verfügbar: der Name steht sichtbar daneben */ }
+    setTimeout(() => { btn.textContent = t("contact.copy"); }, 2000);
+  });
 
   // Rückkehr von Stripe
   const q = new URLSearchParams(location.search);

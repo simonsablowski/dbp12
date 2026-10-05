@@ -43,6 +43,8 @@
 
   "contact": {
     "hostName": "Simon Sablowski",
+    "whatsappHandle": "@simonsablowski",
+    "_whatsappComment": "WhatsApp-Benutzername für Gästefragen. Wird im Abschnitt Kontakt und in den Bestätigungsmails gezeigt. Leer lassen, um ihn auszublenden.",
     "hostEmail": "",
     "_hostEmailComment": "Wird auch per Secret HOST_EMAIL überschrieben. Empfänger der Buchungsbenachrichtigungen."
   }

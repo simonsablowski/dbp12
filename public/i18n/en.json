@@ -115,5 +115,11 @@
   "flat.fact.garden": "Shared garden, no balcony",
   "gallery.prev": "Previous image",
   "gallery.next": "Next image",
-  "flat.fact.kitchenware": "Kitchen and bathroom essentials"
+  "flat.fact.kitchenware": "Kitchen and bathroom essentials",
+  "nav.contact": "Contact",
+  "contact.title": "Contact",
+  "contact.lead": "Questions about the flat or your booking? Message Simon on WhatsApp. He looks after the bookings and hands over the keys on site.",
+  "contact.copy": "Copy username",
+  "contact.copied": "Copied",
+  "contact.how": "How to find him: start a new chat in WhatsApp and search for the username."
 }
