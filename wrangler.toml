@@ -11,7 +11,7 @@ migrations_dir = "migrations"
 
 [vars]
 # Absender für E-Mails (Domain muss bei Resend verifiziert sein)
-MAIL_FROM = "Dora-Benjamin-Park 12 <buchung@dbp12.simsab.net>"
+MAIL_FROM = "Dora-Benjamin-Park 12 <contact@simsab.net>"
 # Öffentliche Basis-URL, wird in E-Mails und für Stripe-Rücksprünge verwendet
 PUBLIC_URL = "https://dbp12.simsab.net"
 # Alte Adresse auf die neue umleiten. Erst auf "true" setzen und neu veröffentlichen,

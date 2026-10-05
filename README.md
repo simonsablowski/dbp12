@@ -73,7 +73,7 @@ npm run deploy
 
 ### E-Mail (Resend)
 
-1. Konto bei resend.com anlegen, die Absender-Domain `dbp12.simsab.net` hinzufügen.
+1. Konto bei resend.com anlegen, die Absender-Domain `simsab.net` hinzufügen.
 2. Resend zeigt DNS-Einträge (SPF/DKIM). Diese bei GoDaddy eintragen.
 3. API-Key erzeugen und als `RESEND_API_KEY` setzen.
 
@@ -89,7 +89,7 @@ Die Seite soll unter `https://dbp12.simsab.net` laufen. Reihenfolge:
 4. `npm run deploy`. Damit gelten `PUBLIC_URL` (Links in E-Mails, Rücksprung von Stripe) und der Canonical-Link in `public/index.html`.
 5. Zum Schluss in `wrangler.toml` `REDIRECT_OLD_HOST = "true"` setzen und noch einmal `npm run deploy`. Ab dann leitet `dbp12.pages.dev` auf die neue Adresse um (`functions/_middleware.js`). Die API unter der alten Adresse bleibt erreichbar, damit ein abonnierter Kalender-Feed weiterläuft.
 
-Der Absender `MAIL_FROM` nutzt `buchung@dbp12.simsab.net`. Dafür muss `dbp12.simsab.net` bei Resend als Absender-Domain verifiziert sein (siehe oben).
+Der Absender `MAIL_FROM` nutzt `contact@simsab.net`. Dafür muss `simsab.net` bei Resend als Absender-Domain verifiziert sein (siehe oben).
 
 ### Verwaltung absichern
 
