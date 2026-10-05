@@ -232,3 +232,10 @@ fieldset > legend + label { margin-top: 14px; }
 /* Kontakt */
 .contact-lines { margin: 0 0 .6em; }
 .contact-lines > span { display: block; }
+
+/* Preisübersicht */
+.rates { width: 100%; border-collapse: collapse; font-size: .82rem; color: var(--ink-soft); margin: 4px 0 6px; }
+.rates th, .rates td { text-align: right; padding: 4px 0 4px 8px; border-top: 1px solid var(--line); font-weight: 400; }
+.rates th { border-top: 0; color: var(--muted); }
+.rates th:first-child, .rates td:first-child { text-align: left; padding-left: 0; }
+.rates-note { font-size: .78rem; color: var(--muted); margin: 0; }

@@ -4,11 +4,18 @@
   "currency": "EUR",
 
   "pricing": {
-    "_comment": "Alle Beträge in Euro. Preis pro Nacht für die ganze Wohnung.",
-    "nightlyRateOneAdult": 100,
-    "nightlyRateTwoAdults": 160,
-    "childSurchargePerNight": 40,
-    "cleaningFee": 40,
+    "_comment": "Alle Beträge in Euro, pro Nacht für die ganze Wohnung. Die Listen stehen für 1, 2 und 3 Erwachsene.",
+    "nightly": {
+      "low": [120, 160, 190],
+      "high": [150, 190, 220]
+    },
+    "highSeason": [
+      { "from": "04-01", "to": "10-31" },
+      { "from": "12-20", "to": "01-02" }
+    ],
+    "_highSeasonComment": "Hauptsaison als Monat-Tag, jeweils einschließlich. Ein Zeitraum darf über den Jahreswechsel gehen. Bei Änderung auch den Hinweistext price.seasonNote in den Sprachdateien anpassen.",
+    "childSurchargePerNight": 30,
+    "cleaningFee": 50,
     "cityTaxPercent": 0,
     "_cityTaxComment": "Berliner Übernachtungsteuer, falls ihr sie auf der Rechnung ausweisen wollt (Prozent vom Übernachtungspreis ohne Reinigung). 0 = nicht anzeigen."
   },
@@ -16,8 +23,8 @@
   "stay": {
     "minNights": 1,
     "maxNights": 10,
-    "maxAdults": 2,
-    "maxChildren": 2,
+    "maxAdults": 3,
+    "maxChildren": 3,
     "bookingHorizonDays": 365,
     "checkInFrom": "15:00",
     "checkInUntil": "20:00",
@@ -32,7 +39,7 @@
     "pendingPaymentHoldMinutes": 35
   },
 
-  "houseRulesVersion": "2026-10-01",
+  "houseRulesVersion": "2026-10-05",
 
   "property": {
     "name": "Dora-Benjamin-Park 12",

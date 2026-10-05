@@ -23,13 +23,13 @@ Alles Wichtige steht in `site.config.json`:
 
 | Einstellung | Bedeutung |
 |---|---|
-| `pricing.nightlyRateOneAdult` | Preis pro Nacht für 1 Erwachsenen (100 €) |
-| `pricing.nightlyRateTwoAdults` | Preis pro Nacht für 2 Erwachsene (160 €) |
-| `pricing.childSurchargePerNight` | Aufschlag pro Kind und Nacht (40 €) |
-| `pricing.cleaningFee` | Reinigungspauschale einmalig (40 €) |
+| `pricing.nightly.low` / `high` | Preise pro Nacht für 1, 2 und 3 Erwachsene in Neben- und Hauptsaison (120/160/190 € und 150/190/220 €) |
+| `pricing.highSeason` | Zeiträume der Hauptsaison als Monat-Tag (April bis Oktober, 20.12. bis 2.1.) |
+| `pricing.childSurchargePerNight` | Aufschlag pro Kind und Nacht (30 €) |
+| `pricing.cleaningFee` | Reinigungspauschale einmalig (50 €) |
 | `pricing.cityTaxPercent` | Übernachtungsteuer in Prozent, 0 = nicht ausweisen |
 | `stay.minNights` / `maxNights` | 1 bzw. 10 Nächte |
-| `stay.maxAdults` / `maxChildren` | 2 / 2 |
+| `stay.maxAdults` / `maxChildren` | 3 / 3 |
 | `stay.checkInFrom` usw. | Check-in 15–20 Uhr, Check-out 11 Uhr (nur für E-Mails; in der Hausordnung separat pflegen) |
 | `payments.onlineEnabled` | `true` schaltet Stripe frei (zusätzlich `STRIPE_SECRET_KEY` nötig) |
 | `houseRulesVersion` | Bei jeder inhaltlichen Änderung der Hausordnung erhöhen |
