@@ -184,13 +184,11 @@
       <div class="wrap prose">
         <h2 data-i18n="contact.title"></h2>
         <p data-i18n="contact.lead"></p>
-        <div class="contact-card" id="contact-wa" hidden>
-          <span class="contact-label">WhatsApp</span>
-          <strong class="contact-handle" id="contact-handle"></strong>
-          <button type="button" class="btn btn-ghost btn-sm" id="contact-copy" data-i18n="contact.copy"></button>
-        </div>
-        <p class="small" data-i18n="contact.how"></p>
-        <p id="contact-mail" hidden><span data-i18n="contact.orMail"></span> <a id="contact-mail-link" href=""></a></p>
+        <p class="contact-lines">
+          <span id="contact-wa" hidden>WhatsApp: <strong id="contact-handle"></strong></span>
+          <span id="contact-mail" hidden><span data-i18n="contact.mailLabel"></span> <a id="contact-mail-link" href=""></a></span>
+        </p>
+        <p class="small" id="contact-how" data-i18n="contact.how" hidden></p>
       </div>
     </section>
   </main>

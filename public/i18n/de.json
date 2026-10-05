@@ -119,8 +119,6 @@
   "nav.contact": "Kontakt",
   "contact.title": "Kontakt",
   "contact.lead": "Fragen zur Wohnung oder zu deiner Buchung? Schreib Simon auf WhatsApp. Er kümmert sich um die Buchungen und übergibt dir vor Ort die Schlüssel.",
-  "contact.copy": "Benutzernamen kopieren",
-  "contact.copied": "Kopiert",
   "contact.how": "So findest du ihn: In WhatsApp einen neuen Chat beginnen und nach dem Benutzernamen suchen.",
-  "contact.orMail": "Oder per E-Mail:"
+  "contact.mailLabel": "E-Mail:"
 }
