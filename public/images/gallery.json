@@ -1,10 +1,10 @@
 {
   "_comment": "Fotos austauschen: Datei in images/gallery/ bzw. images/area/ ablegen und hier eintragen. Reihenfolge = Reihenfolge auf der Seite. 'hero' ist das große Bild oben (muss nicht in der Galerie vorkommen). 'contain' = Bild nicht beschneiden (z. B. Grundriss).",
   "hero": {
-    "src": "images/gallery/fensterblick.webp",
+    "src": "images/gallery/hero.webp",
     "alt": {
-      "de": "Blick aus dem Fenster auf die Spree",
-      "en": "View from the window across the river Spree"
+      "de": "Blick über die Spree zu den Ausflugsschiffen",
+      "en": "View across the Spree to the excursion boats"
     }
   },
   "photos": [
