@@ -14,8 +14,8 @@
         "de": "Wohnzimmer mit Essplatz",
         "en": "Living room with dining table"
       },
-      "w": 1536,
-      "h": 1024
+      "w": 1445,
+      "h": 963
     },
     {
       "src": "images/gallery/wohnzimmer-tv.webp",
@@ -54,22 +54,22 @@
       "h": 1024
     },
     {
-      "src": "images/gallery/bad-waschbecken.webp",
-      "alt": {
-        "de": "Bad: Waschbecken",
-        "en": "Bathroom: washbasin"
-      },
-      "w": 1800,
-      "h": 1200
-    },
-    {
       "src": "images/gallery/bad.webp",
       "alt": {
         "de": "Bad mit bodengleicher Dusche",
         "en": "Bathroom with walk-in shower"
       },
-      "w": 1800,
-      "h": 1200
+      "w": 1445,
+      "h": 963
+    },
+    {
+      "src": "images/gallery/haus.webp",
+      "alt": {
+        "de": "Das Haus von der Straße aus",
+        "en": "The house seen from the street"
+      },
+      "w": 1445,
+      "h": 963
     },
     {
       "src": "images/grundriss.png",
