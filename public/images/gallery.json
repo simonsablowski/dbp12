@@ -82,13 +82,13 @@
   ],
   "area": [
     {
-      "src": "images/area/weg-zum-wasser.webp",
+      "src": "images/area/spree-ausflugsschiffe.webp",
       "alt": {
-        "de": "Weg zum Wasser",
-        "en": "Path to the water"
+        "de": "Blick über die Spree zu den Ausflugsschiffen",
+        "en": "View across the Spree to the excursion boats"
       },
-      "w": 1106,
-      "h": 829
+      "w": 1445,
+      "h": 1088
     },
     {
       "src": "images/area/park.webp",
@@ -96,17 +96,8 @@
         "de": "Dora-Benjamin-Park mit Spielplatz",
         "en": "Dora-Benjamin-Park with playground"
       },
-      "w": 1106,
-      "h": 830
-    },
-    {
-      "src": "images/area/strasse.webp",
-      "alt": {
-        "de": "Blick von der Straße zur Spree",
-        "en": "View from the street towards the Spree"
-      },
-      "w": 1103,
-      "h": 830
+      "w": 1445,
+      "h": 1088
     },
     {
       "src": "images/area/supermarkt.webp",
@@ -114,17 +105,26 @@
         "de": "Supermarkt um die Ecke",
         "en": "Supermarket round the corner"
       },
-      "w": 1047,
-      "h": 830
+      "w": 1445,
+      "h": 1088
+    },
+    {
+      "src": "images/area/spree.webp",
+      "alt": {
+        "de": "Blick über die Spree",
+        "en": "View along the Spree"
+      },
+      "w": 1445,
+      "h": 1088
     },
     {
       "src": "images/area/uferweg.webp",
       "alt": {
-        "de": "Uferweg an der Rummelsburger Bucht",
-        "en": "Waterside path on Rummelsburg Bay"
+        "de": "Uferweg auf Stralau",
+        "en": "Waterside path on Stralau"
       },
-      "w": 1106,
-      "h": 830
+      "w": 1445,
+      "h": 1088
     }
   ]
 }
