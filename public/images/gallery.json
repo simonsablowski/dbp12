@@ -91,19 +91,19 @@
       "h": 1088
     },
     {
-      "src": "images/area/park.webp",
+      "src": "images/area/uferweg.webp",
       "alt": {
-        "de": "Dora-Benjamin-Park mit Spielplatz",
-        "en": "Dora-Benjamin-Park with playground"
+        "de": "Uferweg auf Stralau",
+        "en": "Waterside path on Stralau"
       },
       "w": 1445,
       "h": 1088
     },
     {
-      "src": "images/area/supermarkt.webp",
+      "src": "images/area/park.webp",
       "alt": {
-        "de": "Supermarkt um die Ecke",
-        "en": "Supermarket round the corner"
+        "de": "Dora-Benjamin-Park mit Spielplatz",
+        "en": "Dora-Benjamin-Park with playground"
       },
       "w": 1445,
       "h": 1088
@@ -118,10 +118,10 @@
       "h": 1088
     },
     {
-      "src": "images/area/uferweg.webp",
+      "src": "images/area/supermarkt.webp",
       "alt": {
-        "de": "Uferweg auf Stralau",
-        "en": "Waterside path on Stralau"
+        "de": "Supermarkt um die Ecke",
+        "en": "Supermarket round the corner"
       },
       "w": 1445,
       "h": 1088
