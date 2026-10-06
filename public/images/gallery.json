@@ -82,10 +82,10 @@
   ],
   "area": [
     {
-      "src": "images/area/spree-ausflugsschiffe.webp",
+      "src": "images/area/spree.webp",
       "alt": {
-        "de": "Blick über die Spree zu den Ausflugsschiffen",
-        "en": "View across the Spree to the excursion boats"
+        "de": "Blick über die Spree",
+        "en": "View along the Spree"
       },
       "w": 1445,
       "h": 1088
@@ -104,15 +104,6 @@
       "alt": {
         "de": "Supermarkt um die Ecke",
         "en": "Supermarket round the corner"
-      },
-      "w": 1445,
-      "h": 1088
-    },
-    {
-      "src": "images/area/spree.webp",
-      "alt": {
-        "de": "Blick über die Spree",
-        "en": "View along the Spree"
       },
       "w": 1445,
       "h": 1088

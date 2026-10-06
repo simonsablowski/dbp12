@@ -69,6 +69,7 @@ function renderMedia() {
   };
   fill($("#gallery"), g.photos);
   fill($("#gallery-area"), g.area || []);
+  $("#gallery-area").classList.toggle("has-feature", (g.area || []).length === 5);
 }
 
 // Großansicht mit Blättern (Pfeiltasten, Buttons, Wischen)

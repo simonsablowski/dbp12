@@ -204,12 +204,12 @@ dialog::backdrop { background: rgba(47, 53, 41, .55); }
 .lb-nav:hover { background: #fff; }
 .lb-prev { left: 8px; }
 .lb-next { right: 8px; }
-/* Rund ums Haus: gleiches Raster wie die Wohnungsfotos, das erste Bild ist so hoch wie zwei Reihen */
-.gallery-area figure:first-child { grid-column: span 2; grid-row: span 2; position: relative; }
-.gallery-area figure:first-child button { position: absolute; inset: 0; height: 100%; aspect-ratio: auto; }
+/* Rund ums Haus: gleiches Raster wie die Wohnungsfotos. Bei genau fünf Bildern (has-feature) ist das erste so hoch wie zwei Reihen. */
+.gallery-area.has-feature figure:first-child { grid-column: span 2; grid-row: span 2; position: relative; }
+.gallery-area.has-feature figure:first-child button { position: absolute; inset: 0; height: 100%; aspect-ratio: auto; }
 @media (max-width: 720px) {
-  .gallery-area figure:first-child { grid-row: auto; }
-  .gallery-area figure:first-child button { position: static; height: auto; aspect-ratio: 3 / 2; }
+  .gallery-area.has-feature figure:first-child { grid-row: auto; }
+  .gallery-area.has-feature figure:first-child button { position: static; height: auto; aspect-ratio: 3 / 2; }
 }
 .lightbox .close { position: absolute; top: 6px; right: 6px; color: #fff; background: rgba(0,0,0,.4); border-radius: 50%; width: 40px; height: 40px; }
 
