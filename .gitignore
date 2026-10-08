@@ -1,3 +1,31 @@
+# Abhängigkeiten, werden mit `npm install` neu erzeugt
 node_modules/
+
+# Lokaler Zustand von Wrangler (lokale D1-Datenbank mit Testbuchungen)
 .wrangler/
+
+# Lokale Secrets für `npm run dev` (Vorlage: .dev.vars.example)
 .dev.vars
+
+# Umgebungsdateien mit Schlüsseln oder Passwörtern
+.env*
+
+# Systemdateien von macOS und Windows
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Git-Bundles (Sicherungskopien des Repositorys)
+*.bundle
+
+# Unbearbeitete Originalfotos und Videos gehören nicht ins Repository,
+# nur die verkleinerten Bilder in public/images/. Bisher liegen keine im Projekt.
+originals/
+*.heic
+*.HEIC
+*.dng
+*.raw
+*.mov
+*.MOV
+*.mp4
+*.MP4

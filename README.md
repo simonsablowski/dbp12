@@ -140,3 +140,17 @@ public/                     Website
 ```
 
 Doppelbuchungen sind ausgeschlossen: Prüfung und Eintrag passieren in einer einzigen Datenbankanweisung.
+
+## Git
+
+Das Projekt liegt im privaten Repository `simonsablowski/dbp12` auf GitHub. Nicht im Repository sind `node_modules/`, der lokale Wrangler-Zustand `.wrangler/`, die lokalen Secrets in `.dev.vars` und `.env*`, Systemdateien sowie unbearbeitete Originalfotos und Videos (siehe `.gitignore`). Secrets für Cloudflare werden nur mit `npx wrangler pages secret put` gesetzt, nie in Dateien eingecheckt.
+
+Commit-Nachrichten schreiben wir auf Englisch, kurz und im Imperativ, zum Beispiel `Update prices for high season`.
+
+Änderungen hochladen:
+```
+git pull
+git add -A
+git commit -m "Describe the change"
+git push
+```
