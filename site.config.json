@@ -61,7 +61,7 @@
     "_hostEmailComment": "Wird auch per Secret HOST_EMAIL überschrieben. Empfänger der Buchungsbenachrichtigungen."
   },
   "feedback": {
-    "formUrl": "",
+    "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSfRJS5gJ78LBxf6Ijfy1Ee7T51FUzZ24zKU4kph8AJyAhcg3w/viewform",
     "_comment": "Link zum Google-Formular für Gästefeedback. Der QR-Code auf dem Infoblatt zeigt auf /feedback und wird hierher weitergeleitet. Leer: Weiterleitung zum Kontaktbereich."
   }
 }
