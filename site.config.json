@@ -59,5 +59,9 @@
     "_whatsappComment": "WhatsApp-Benutzername für Gästefragen. Wird im Abschnitt Kontakt und in den Bestätigungsmails gezeigt. Leer lassen, um ihn auszublenden.",
     "hostEmail": "",
     "_hostEmailComment": "Wird auch per Secret HOST_EMAIL überschrieben. Empfänger der Buchungsbenachrichtigungen."
+  },
+  "feedback": {
+    "formUrl": "",
+    "_comment": "Link zum Google-Formular für Gästefeedback. Der QR-Code auf dem Infoblatt zeigt auf /feedback und wird hierher weitergeleitet. Leer: Weiterleitung zum Kontaktbereich."
   }
 }
