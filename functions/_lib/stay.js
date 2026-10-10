@@ -42,36 +42,19 @@ export function validateStay({ checkIn, checkOut, adults, children }) {
   return null;
 }
 
-// Hauptsaison laut site.config.json (Zeiträume als Monat-Tag, auch über den Jahreswechsel)
-export function isHighSeason(iso) {
-  const md = iso.slice(5);
-  return (config.pricing.highSeason || []).some((r) =>
-    r.from <= r.to ? md >= r.from && md <= r.to : md >= r.from || md <= r.to
-  );
-}
-
 export function calculatePrice({ checkIn, checkOut, adults, children }) {
   const p = config.pricing;
-  const idx = Math.min(adults, p.nightly.low.length) - 1;
+  const idx = Math.min(adults, p.nightly.length) - 1;
   const nightlyChildren = children * p.childSurchargePerNight;
-  let lowNights = 0;
-  let highNights = 0;
-  // jede Nacht zählt nach der Saison ihres Datums
-  for (let d = checkIn; d < checkOut; d = addDays(d, 1)) {
-    if (isHighSeason(d)) highNights++;
-    else lowNights++;
-  }
-  const rateLow = p.nightly.low[idx] + nightlyChildren;
-  const rateHigh = p.nightly.high[idx] + nightlyChildren;
-  const accommodation = lowNights * rateLow + highNights * rateHigh;
+  let nights = 0;
+  for (let d = checkIn; d < checkOut; d = addDays(d, 1)) nights++;
+  const rate = p.nightly[idx] + nightlyChildren;
+  const accommodation = nights * rate;
   const cityTax = Math.round(accommodation * (p.cityTaxPercent || 0)) / 100;
   const total = accommodation + p.cleaningFee + cityTax;
   return {
-    nights: lowNights + highNights,
-    lowNights,
-    highNights,
-    rateLow,
-    rateHigh,
+    nights,
+    rate,
     nightlyChildren,
     accommodation,
     cleaningFee: p.cleaningFee,

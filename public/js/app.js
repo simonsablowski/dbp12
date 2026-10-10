@@ -218,45 +218,32 @@ function renderCalendar() {
 }
 
 // ---------- Preis ----------
-function isHighSeason(iso) {
-  const md = iso.slice(5);
-  return (state.config.pricing.highSeason || []).some((r) =>
-    r.from <= r.to ? md >= r.from && md <= r.to : md >= r.from || md <= r.to
-  );
-}
-
 function calcPrice() {
   if (!state.start || !state.end) return null;
   const p = state.config.pricing;
   const adults = Number($("#adults").value);
   const children = Number($("#children").value);
-  const idx = Math.min(adults, p.nightly.low.length) - 1;
+  const idx = Math.min(adults, p.nightly.length) - 1;
   const kids = children * p.childSurchargePerNight;
-  let low = 0;
-  let high = 0;
-  for (let d = state.start; d < state.end; d = addDays(d, 1)) {
-    if (isHighSeason(d)) high++;
-    else low++;
-  }
-  const rateLow = p.nightly.low[idx] + kids;
-  const rateHigh = p.nightly.high[idx] + kids;
-  const accommodation = low * rateLow + high * rateHigh;
+  let nights = 0;
+  for (let d = state.start; d < state.end; d = addDays(d, 1)) nights++;
+  const rate = p.nightly[idx] + kids;
+  const accommodation = nights * rate;
   const cityTax = Math.round(accommodation * (p.cityTaxPercent || 0)) / 100;
-  return { low, high, rateLow, rateHigh, children, accommodation, cleaning: p.cleaningFee, cityTax, total: accommodation + p.cleaningFee + cityTax };
+  return { nights, rate, children, accommodation, cleaning: p.cleaningFee, cityTax, total: accommodation + p.cleaningFee + cityTax };
 }
 
-// Preisübersicht (Neben- und Hauptsaison) unter der Berechnung
+// Preisübersicht unter der Berechnung
 function renderRates() {
   const cur = state.config.currency;
   const p = state.config.pricing;
-  const rows = p.nightly.low.map((lowRate, i) =>
-    `<tr><td>${i === 0 ? t("price.person1") : t("price.persons", { n: i + 1 })}</td><td>${fmtMoney(lowRate, cur)}</td><td>${fmtMoney(p.nightly.high[i], cur)}</td></tr>`
+  const rows = p.nightly.map((rate, i) =>
+    `<tr><td>${i === 0 ? t("price.person1") : t("price.persons", { n: i + 1 })}</td><td>${fmtMoney(rate, cur)}</td></tr>`
   );
   const html =
-    `<table class="rates"><thead><tr><th>${t("price.perNight")}</th><th>${t("price.low")}</th><th>${t("price.high")}</th></tr></thead><tbody>${rows.join("")}` +
-    `<tr><td>${t("price.perChild")}</td><td colspan="2">+ ${fmtMoney(p.childSurchargePerNight, cur)}</td></tr>` +
-    `<tr><td>${t("price.cleaning")}</td><td colspan="2">${t("price.once", { amount: fmtMoney(p.cleaningFee, cur) })}</td></tr></tbody></table>` +
-    `<p class="rates-note">${t("price.seasonNote")}</p>`;
+    `<table class="rates"><thead><tr><th>${t("price.perNight")}</th><th></th></tr></thead><tbody>${rows.join("")}` +
+    `<tr><td>${t("price.perChild")}</td><td>+ ${fmtMoney(p.childSurchargePerNight, cur)}</td></tr>` +
+    `<tr><td>${t("price.cleaning")}</td><td>${t("price.once", { amount: fmtMoney(p.cleaningFee, cur) })}</td></tr></tbody></table>`;
   document.querySelectorAll(".rate-info").forEach((el) => { el.innerHTML = html; });
 }
 
@@ -271,8 +258,7 @@ function renderPrice() {
     return;
   }
   const lines = [];
-  if (pr.low) lines.push(`<li><span>${t("price.low")}: ${t("price.nights", { n: pr.low, rate: fmtMoney(pr.rateLow, cur) })}</span><span>${fmtMoney(pr.low * pr.rateLow, cur)}</span></li>`);
-  if (pr.high) lines.push(`<li><span>${t("price.high")}: ${t("price.nights", { n: pr.high, rate: fmtMoney(pr.rateHigh, cur) })}</span><span>${fmtMoney(pr.high * pr.rateHigh, cur)}</span></li>`);
+  lines.push(`<li><span>${t("price.stay")}: ${t("price.nights", { n: pr.nights, rate: fmtMoney(pr.rate, cur) })}</span><span>${fmtMoney(pr.accommodation, cur)}</span></li>`);
   if (pr.children) lines.push(`<li class="sub-line"><span>${t("price.childrenLabel", { n: pr.children, rate: fmtMoney(p.childSurchargePerNight, cur) })}</span><span></span></li>`);
   lines.push(`<li><span>${t("price.cleaning")}</span><span>${fmtMoney(pr.cleaning, cur)}</span></li>`);
   if (pr.cityTax) lines.push(`<li><span>${t("price.cityTax", { p: p.cityTaxPercent })}</span><span>${fmtMoney(pr.cityTax, cur)}</span></li>`);
@@ -414,7 +400,7 @@ function showDone(title, text) {
 // ---------- Gesamtdarstellung ----------
 function renderAll() {
   const c = state.config;
-  $("#hero-from").textContent = t("hero.from", { price: fmtMoney(Math.min(...c.pricing.nightly.low), c.currency) });
+  $("#hero-from").textContent = t("hero.from", { price: fmtMoney(Math.min(...c.pricing.nightly), c.currency) });
   const reg = $("#reg-nr");
   if (c.property.registrationNumber) { reg.textContent = t("footer.registration", { nr: c.property.registrationNumber }); reg.hidden = false; }
   const wa = (c.contact && c.contact.whatsappHandle) || "";

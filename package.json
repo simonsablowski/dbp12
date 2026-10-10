@@ -7,7 +7,7 @@
     "dev": "wrangler pages dev",
     "db:local": "wrangler d1 migrations apply dbp12 --local",
     "db:remote": "wrangler d1 migrations apply dbp12 --remote",
-    "deploy": "wrangler pages deploy"
+    "deploy": "wrangler pages deploy --branch=production"
   },
   "devDependencies": {
     "wrangler": "^4.145.0"

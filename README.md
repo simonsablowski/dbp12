@@ -24,8 +24,7 @@ Alles Wichtige steht in `site.config.json`:
 
 | Einstellung | Bedeutung |
 |---|---|
-| `pricing.nightly.low` / `high` | Preise pro Nacht für 1, 2 und 3 Erwachsene in Neben- und Hauptsaison (120/160/190 € und 150/190/220 €) |
-| `pricing.highSeason` | Zeiträume der Hauptsaison als Monat-Tag (April bis Oktober, 20.12. bis 2.1.) |
+| `pricing.nightly` | Preise pro Nacht für 1, 2 und 3 Erwachsene, ganzjährig (120/160/200 €) |
 | `pricing.childSurchargePerNight` | Aufschlag pro Kind und Nacht (30 €) |
 | `pricing.cleaningFee` | Reinigungspauschale einmalig (50 €) |
 | `pricing.cityTaxPercent` | Übernachtungsteuer in Prozent, 0 = nicht ausweisen |
@@ -70,6 +69,7 @@ Deployen:
 ```
 npm run deploy
 ```
+Das Skript veröffentlicht mit `--branch=production` immer in die Produktionsumgebung. Ohne diese Angabe nimmt Wrangler den Git-Branch (`main`) und legt nur eine Vorschau an.
 
 ### E-Mail (Resend)
 
@@ -145,7 +145,7 @@ Doppelbuchungen sind ausgeschlossen: Prüfung und Eintrag passieren in einer ein
 
 Das Projekt liegt im privaten Repository `simonsablowski/dbp12` auf GitHub. Nicht im Repository sind `node_modules/`, der lokale Wrangler-Zustand `.wrangler/`, die lokalen Secrets in `.dev.vars` und `.env*`, Systemdateien sowie unbearbeitete Originalfotos und Videos (siehe `.gitignore`). Secrets für Cloudflare werden nur mit `npx wrangler pages secret put` gesetzt, nie in Dateien eingecheckt.
 
-Commit-Nachrichten schreiben wir auf Englisch, kurz und im Imperativ, zum Beispiel `Update prices for high season`.
+Commit-Nachrichten schreiben wir auf Englisch, kurz und im Imperativ, zum Beispiel `Update nightly prices`.
 
 Änderungen hochladen:
 ```

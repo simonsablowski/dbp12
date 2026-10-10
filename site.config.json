@@ -4,16 +4,8 @@
   "currency": "EUR",
 
   "pricing": {
-    "_comment": "Alle Beträge in Euro, pro Nacht für die ganze Wohnung. Die Listen stehen für 1, 2 und 3 Erwachsene.",
-    "nightly": {
-      "low": [120, 160, 190],
-      "high": [150, 190, 220]
-    },
-    "highSeason": [
-      { "from": "04-01", "to": "10-31" },
-      { "from": "12-20", "to": "01-02" }
-    ],
-    "_highSeasonComment": "Hauptsaison als Monat-Tag, jeweils einschließlich. Ein Zeitraum darf über den Jahreswechsel gehen. Bei Änderung auch den Hinweistext price.seasonNote in den Sprachdateien anpassen.",
+    "_comment": "Alle Beträge in Euro, pro Nacht für die ganze Wohnung. Die Liste steht für 1, 2 und 3 Erwachsene. Gilt das ganze Jahr.",
+    "nightly": [120, 160, 200],
     "childSurchargePerNight": 30,
     "cleaningFee": 50,
     "cityTaxPercent": 0,
