@@ -1,5 +1,5 @@
 {
-  "_comment": "Fotos austauschen: Datei in images/gallery/ bzw. images/area/ ablegen und hier eintragen. Reihenfolge = Reihenfolge auf der Seite. 'hero' ist das große Bild oben (muss nicht in der Galerie vorkommen). 'contain' = Bild nicht beschneiden (z. B. Grundriss).",
+  "_comment": "Fotos austauschen: Datei in images/gallery/ bzw. images/area/ ablegen und hier eintragen. Reihenfolge = Reihenfolge auf der Seite. 'hero' ist das große Bild oben (muss nicht in der Galerie vorkommen). 'contain' = Bild nicht beschneiden (z. B. Grundriss). '_replace' markiert Fotos mit Möbeln, die nicht mehr vorhanden sind: bei Gelegenheit austauschen.",
   "hero": {
     "src": "images/gallery/hero.webp",
     "alt": {
@@ -47,11 +47,12 @@
     {
       "src": "images/gallery/ausziehbett.webp",
       "alt": {
-        "de": "Ausziehbett (ausgezogen 160 × 200 cm) und Kommode",
-        "en": "Pull-out bed (160 × 200 cm when extended) and chest of drawers"
+        "de": "Zimmer mit Parkettboden und Fenstertür",
+        "en": "Room with parquet flooring and French window"
       },
       "w": 1445,
-      "h": 963
+      "h": 963,
+      "_replace": "Zeigt Ausziehbett und Kommode (werden entfernt). Neues Foto, z. B. mit Schreibtisch und Schreibtischstuhl."
     },
     {
       "src": "images/gallery/bad.webp",

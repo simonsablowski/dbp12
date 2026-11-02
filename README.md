@@ -1,156 +1,28 @@
-# DBP12 – Buchungsseite Dora-Benjamin-Park 12
+# DBP12 – Dora-Benjamin-Park 12
 
-Kleine Buchungsseite für die Wohnung im Dora-Benjamin-Park 12 (Berlin-Stralau), auf Deutsch und Englisch.
-Cloudflare Pages liefert die Seite aus, Pages Functions bilden die API, eine Cloudflare-D1-Datenbank speichert Buchungen und Sperrzeiten.
+Vorstellungsseite für die möblierte Wohnung im Dora-Benjamin-Park 12 (Berlin-Stralau), auf Deutsch und Englisch.
+Vermietet wird mittel- bis längerfristig (etwa 2 bis 6 Monate) an Unternehmen und deren Beschäftigte, nicht als Ferienwohnung. Die Seite zeigt die Wohnung und bietet eine Kontaktmöglichkeit per E-Mail (contact@simsab.net) und optional WhatsApp. Es gibt weder Buchung noch Preise.
 
-## Was die Seite kann
+Die Seite ist statisch (Cloudflare Pages, `public/`). Einzige Funktion: `functions/_middleware.js` leitet `dbp12.pages.dev` auf `dbp12.simsab.net` um. Keine Cookies, kein Tracking, keine Datenbank, keine Secrets.
 
-- DE/EN-Umschalter oben rechts. Alle Texte stehen in `public/i18n/de.json` und `public/i18n/en.json`.
-- Fotos, Umgebungsfotos und Grundriss. Welche Bilder gezeigt werden, steht in `public/images/gallery.json`.
-- Hausordnung & Mietbedingungen in `public/content/house-rules.de.html` und `.en.html`. Vor der Buchung muss sie per Checkbox akzeptiert werden. Gespeichert werden Zeitpunkt und Fassung (`houseRulesVersion`).
-- Kalender mit belegten Tagen. Abreisetag und nächster Anreisetag dürfen gleich sein.
-- Preisberechnung nach `site.config.json` (wird im Browser angezeigt und auf dem Server noch einmal berechnet).
-- Buchungen lassen sich sperren: `booking.enabled` in `site.config.json`. Bei `false` zeigt die Seite „Buchung bald möglich“ mit Preisen und Kontakt, und die API lehnt Buchungen ab.
-- Barzahlung bei Schlüsselübergabe als Standard. Buchung ist sofort verbindlich.
-- Karte, SEPA-Lastschrift und PayPal über Stripe Checkout sind eingebaut, aber deaktiviert.
-- Bestätigungsmail an den Gast (in seiner Sprache) und Benachrichtigung an dich.
-- Verwaltung unter `/admin.html`: Buchungen ansehen, Zeiträume sperren (z. B. Eigennutzung), stornieren.
-- iCal-Feed unter `/api/calendar?token=…`, den du in Google Kalender abonnieren kannst.
-- Keine Cookies, kein Tracking, keine externen Schriften.
+## Inhalte ändern
 
-## Einstellungen ändern
+- Texte: `public/i18n/de.json` und `public/i18n/en.json` (immer beide Dateien pflegen, gleiche Schlüssel).
+- Aufbau: `public/index.html`. Impressum und Datenschutz: `public/legal.html` (nur Deutsch).
+- Kontaktdaten stehen direkt in `public/index.html` und `public/legal.html`.
+- Fotos: Bilder in `public/images/gallery/` bzw. `public/images/area/` ablegen und in `public/images/gallery.json` eintragen (Reihenfolge = Reihenfolge auf der Seite, `hero` = großes Bild oben).
+- **Fotos zum Austauschen** sind in `gallery.json` mit `_replace` markiert. Aktuell: `images/gallery/ausziehbett.webp` (zeigt Ausziehbett und Kommode, die entfernt werden; neues Foto z. B. mit Schreibtisch und Schreibtischstuhl).
 
-Alles Wichtige steht in `site.config.json`:
-
-| Einstellung | Bedeutung |
-|---|---|
-| `pricing.nightly` | Preise pro Nacht für 1, 2 und 3 Erwachsene, ganzjährig (120/160/200 €) |
-| `pricing.childSurchargePerNight` | Aufschlag pro Kind und Nacht (30 €) |
-| `pricing.cleaningFee` | Reinigungspauschale einmalig (50 €) |
-| `pricing.cityTaxPercent` | Übernachtungsteuer in Prozent, 0 = nicht ausweisen |
-| `stay.minNights` / `maxNights` | 1 bzw. 10 Nächte |
-| `stay.maxAdults` / `maxChildren` | 3 / 3 |
-| `stay.checkInFrom` usw. | Check-in 15–20 Uhr, Check-out 11 Uhr (nur für E-Mails; in der Hausordnung separat pflegen) |
-| `payments.onlineEnabled` | `true` schaltet Stripe frei (zusätzlich `STRIPE_SECRET_KEY` nötig) |
-| `houseRulesVersion` | Bei jeder inhaltlichen Änderung der Hausordnung erhöhen |
-| `property.registrationNumber` | Registriernummer, erscheint dann im Footer |
-
-Nach jeder Änderung neu deployen.
-
-## Fotos austauschen
-
-1. Neue Bilder in `public/images/gallery/` (Wohnung) bzw. `public/images/area/` (Umgebung) legen. Am besten als JPG oder WebP, etwa 1600 px breit.
-2. In `public/images/gallery.json` Pfad und Bildbeschreibung (de/en) eintragen. Die Reihenfolge dort ist die Reihenfolge auf der Seite. `hero` ist das große Bild oben.
-3. Die Hinweiszeile unter der Galerie (`flat.photoHint` in den Sprachdateien) anpassen, sobald keine KI-Visualisierungen mehr dabei sind.
-
-## Einrichtung (einmalig)
+## Lokal entwickeln und veröffentlichen
 
 ```
 npm install
-npx wrangler login
-npx wrangler d1 create dbp12
-```
-Die ausgegebene `database_id` in `wrangler.toml` eintragen, dann:
-```
-npm run db:remote
-npx wrangler pages project create dbp12 --production-branch main
+npm run dev      # http://localhost:8788
+npm run deploy   # veröffentlicht in die Produktionsumgebung (--branch=production)
 ```
 
-Secrets setzen (jeweils wird nach dem Wert gefragt):
-```
-npx wrangler pages secret put ADMIN_TOKEN       # Passwort für /admin.html
-npx wrangler pages secret put HOST_EMAIL        # deine Adresse für Benachrichtigungen
-npx wrangler pages secret put RESEND_API_KEY    # E-Mail-Versand
-npx wrangler pages secret put CALENDAR_TOKEN    # langer Zufallswert für den iCal-Feed
-```
-`MAIL_FROM` und `PUBLIC_URL` in `wrangler.toml` stehen auf `dbp12.simsab.net` (siehe Abschnitt Domain).
-
-Deployen:
-```
-npm run deploy
-```
-Das Skript veröffentlicht mit `--branch=production` immer in die Produktionsumgebung. Ohne diese Angabe nimmt Wrangler den Git-Branch (`main`) und legt nur eine Vorschau an.
-
-### E-Mail (Resend)
-
-1. Konto bei resend.com anlegen, die Absender-Domain `simsab.net` hinzufügen.
-2. Resend zeigt DNS-Einträge (SPF/DKIM). Diese bei GoDaddy eintragen.
-3. API-Key erzeugen und als `RESEND_API_KEY` setzen.
-
-Solange kein Key gesetzt ist, werden Mails nur ins Log geschrieben. Buchungen funktionieren trotzdem.
-
-### Domain
-
-Die Seite soll unter `https://dbp12.simsab.net` laufen. Reihenfolge:
-
-1. Cloudflare-Dashboard, *Workers & Pages*, Projekt `dbp12`, *Custom domains*, *Set up a custom domain*: `dbp12.simsab.net` eintragen.
-2. Bei GoDaddy in der DNS-Verwaltung von `simsab.net` einen CNAME anlegen: Name `dbp12`, Wert `dbp12.pages.dev`.
-3. Warten, bis Cloudflare die Domain als *Active* anzeigt und `https://dbp12.simsab.net` im Browser lädt.
-4. `npm run deploy`. Damit gelten `PUBLIC_URL` (Links in E-Mails, Rücksprung von Stripe) und der Canonical-Link in `public/index.html`.
-5. Zum Schluss in `wrangler.toml` `REDIRECT_OLD_HOST = "true"` setzen und noch einmal `npm run deploy`. Ab dann leitet `dbp12.pages.dev` auf die neue Adresse um (`functions/_middleware.js`). Die API unter der alten Adresse bleibt erreichbar, damit ein abonnierter Kalender-Feed weiterläuft.
-
-Der Absender `MAIL_FROM` nutzt `contact@simsab.net`. Dafür muss `simsab.net` bei Resend als Absender-Domain verifiziert sein (siehe oben).
-
-### Verwaltung absichern
-
-`/admin.html` ist mit `ADMIN_TOKEN` geschützt. Zusätzlich kannst du in Cloudflare Zero Trust eine Access-Regel für `/admin.html` und `/api/admin/*` anlegen, die nur deine E-Mail-Adresse zulässt (kostenlos bis 50 Nutzer).
-
-### Belegung im Google Kalender sehen
-
-In Google Kalender: *Weitere Kalender → Per URL* und `https://<deine-domain>/api/calendar?token=<CALENDAR_TOKEN>` eintragen. Google aktualisiert abonnierte Kalender nur alle paar Stunden. Der umgekehrte Weg (Belegung aus einem geteilten Google Kalender lesen) ist vorbereitet: Die Verfügbarkeit läuft zentral über `listOccupied()` in `functions/_lib/db.js`, dort kann später ein zweiter Kalender eingelesen werden.
-
-## Online-Zahlung später freischalten
-
-1. In Stripe unter *Settings → Payment methods* Karte, SEPA-Lastschrift und PayPal aktivieren.
-2. Webhook unter *Developers → Webhooks* auf `https://<deine-domain>/api/stripe-webhook` anlegen, mit den Ereignissen `checkout.session.completed`, `checkout.session.async_payment_succeeded`, `checkout.session.async_payment_failed` und `checkout.session.expired`.
-3. `STRIPE_SECRET_KEY` und `STRIPE_WEBHOOK_SECRET` als Secrets setzen (zuerst Testschlüssel).
-4. In `site.config.json` `payments.onlineEnabled` auf `true` setzen und deployen.
-
-Ablauf: Bei Online-Zahlung wird der Zeitraum 35 Minuten reserviert. Erst wenn Stripe die Zahlung meldet, wird die Buchung bestätigt und die Mails gehen raus. Läuft die Zahlung ab oder schlägt sie fehl, wird der Zeitraum wieder frei.
-
-## Lokal entwickeln
-
-Einmalig (Windows-Eingabeaufforderung):
-```
-npm install
-copy .dev.vars.example .dev.vars
-```
-Danach jedes Mal:
-```
-npm run dev
-```
-`npm run dev` legt die lokale Datenbank beim ersten Start automatisch an.
-Seite: http://localhost:8788, Verwaltung: http://localhost:8788/admin.html (Passwort aus `.dev.vars`).
-
-## Aufbau
-
-```
-site.config.json            Preise, Regeln, Zahlarten
-wrangler.toml               Cloudflare-Konfiguration
-migrations/                 Datenbankschema (D1)
-functions/api/              API-Endpunkte
-  config.js                 öffentliche Einstellungen
-  availability.js           belegte Zeiträume (ohne Gastdaten)
-  bookings.js               Buchung anlegen
-  stripe-webhook.js         Zahlungsereignisse
-  calendar.js               iCal-Feed
-  admin/                    Verwaltung
-functions/_lib/             gemeinsame Logik (Preis, DB, Mail, Stripe)
-public/                     Website
-```
-
-Doppelbuchungen sind ausgeschlossen: Prüfung und Eintrag passieren in einer einzigen Datenbankanweisung.
+Domain: `dbp12.simsab.net` (Cloudflare Pages, Custom domain, CNAME `dbp12` → `dbp12.pages.dev` bei GoDaddy).
 
 ## Git
 
-Das Projekt liegt im privaten Repository `simonsablowski/dbp12` auf GitHub. Nicht im Repository sind `node_modules/`, der lokale Wrangler-Zustand `.wrangler/`, die lokalen Secrets in `.dev.vars` und `.env*`, Systemdateien sowie unbearbeitete Originalfotos und Videos (siehe `.gitignore`). Secrets für Cloudflare werden nur mit `npx wrangler pages secret put` gesetzt, nie in Dateien eingecheckt.
-
-Commit-Nachrichten schreiben wir auf Englisch, kurz und im Imperativ, zum Beispiel `Update nightly prices`.
-
-Änderungen hochladen:
-```
-git pull
-git add -A
-git commit -m "Describe the change"
-git push
-```
+Repository `simonsablowski/dbp12`. Commit-Nachrichten auf Englisch, kurz und im Imperativ, zum Beispiel `Update flat description`.

@@ -44,12 +44,3 @@ export function applyStatic(root = document) {
     }
   });
 }
-
-export function fmtMoney(amount, currency = "EUR") {
-  const opts = { style: "currency", currency, minimumFractionDigits: amount % 1 ? 2 : 0, maximumFractionDigits: 2 };
-  return new Intl.NumberFormat(current === "de" ? "de-DE" : "en-GB", opts).format(amount);
-}
-
-export function fmtDate(iso, opts = { day: "numeric", month: "short", year: "numeric" }) {
-  return new Intl.DateTimeFormat(current === "de" ? "de-DE" : "en-GB", { ...opts, timeZone: "UTC" }).format(new Date(iso + "T00:00:00Z"));
-}

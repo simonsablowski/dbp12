@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title data-i18n="meta.title">Dora-Benjamin-Park 12 · Wohnung in Berlin-Stralau</title>
+  <title data-i18n="meta.title">Dora-Benjamin-Park 12 · Möblierte Wohnung in Berlin-Stralau</title>
   <meta name="description" data-i18n-attr="content:meta.description" content="">
   <link rel="canonical" href="https://dbp12.simsab.net/">
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
@@ -15,10 +15,9 @@
       <a class="brand" href="#top">DBP<span>12</span></a>
       <nav class="mainnav" aria-label="Navigation">
         <a href="#flat" data-i18n="nav.flat">Wohnung</a>
+        <a href="#terms" data-i18n="nav.terms">Konditionen</a>
         <a href="#area" data-i18n="nav.area">Stralau</a>
-        <a href="#rules" data-i18n="nav.rules">Hausordnung</a>
-        <a href="#contact" data-i18n="nav.contact">Kontakt</a>
-        <a href="#book" class="nav-cta" data-i18n="nav.book">Buchen</a>
+        <a href="#contact" class="nav-cta" data-i18n="nav.contact">Kontakt</a>
       </nav>
       <div class="lang" role="group" data-i18n-attr="aria-label:lang.switch">
         <button type="button" data-lang="de" aria-pressed="true">DE</button>
@@ -35,10 +34,7 @@
           <p class="kicker" data-i18n="hero.kicker"></p>
           <h1 data-i18n="hero.title"></h1>
           <p class="lead" data-i18n="hero.lead"></p>
-          <p class="hero-actions">
-            <a class="btn" href="#book" id="hero-cta" data-i18n="hero.cta"></a>
-            <span class="from" id="hero-from"></span>
-          </p>
+          <p><a class="btn" href="#contact" data-i18n="hero.cta"></a></p>
         </div>
       </div>
     </section>
@@ -57,13 +53,14 @@
             <ul>
               <li data-i18n="flat.fact.view"></li>
               <li data-i18n="flat.fact.size"></li>
-              <li data-i18n="flat.fact.guests"></li>
-              <li data-i18n="flat.fact.beds"></li>
-              <li data-i18n="flat.fact.bath"></li>
+              <li data-i18n="flat.fact.persons"></li>
+              <li data-i18n="flat.fact.bed"></li>
+              <li data-i18n="flat.fact.work"></li>
+              <li data-i18n="flat.fact.washer"></li>
               <li data-i18n="flat.fact.kitchen"></li>
+              <li data-i18n="flat.fact.bath"></li>
               <li data-i18n="flat.fact.heating"></li>
               <li data-i18n="flat.fact.wifi"></li>
-              <li data-i18n="flat.fact.linen"></li>
               <li data-i18n="flat.fact.nosmoking"></li>
             </ul>
           </aside>
@@ -71,11 +68,30 @@
 
         <h3 class="sub" data-i18n="flat.galleryTitle"></h3>
         <div class="gallery" id="gallery"></div>
-
       </div>
     </section>
 
-    <section id="area" class="section section-tint">
+    <section id="terms" class="section section-tint">
+      <div class="wrap two-col">
+        <div class="prose">
+          <h2 data-i18n="terms.title"></h2>
+          <p data-i18n="terms.p1"></p>
+          <p data-i18n="terms.p2"></p>
+        </div>
+        <aside class="facts">
+          <h3 data-i18n="terms.factsTitle"></h3>
+          <ul>
+            <li data-i18n="terms.fact.available"></li>
+            <li data-i18n="terms.fact.duration"></li>
+            <li data-i18n="terms.fact.furnished"></li>
+            <li data-i18n="terms.fact.registration"></li>
+            <li data-i18n="terms.fact.rent"></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="area" class="section">
       <div class="wrap two-col">
         <div class="prose">
           <h2 data-i18n="area.title"></h2>
@@ -102,93 +118,15 @@
       </div>
     </section>
 
-    <section id="rules" class="section">
-      <div class="wrap prose">
-        <h2 data-i18n="rules.title"></h2>
-        <p data-i18n="rules.lead"></p>
-        <p><button type="button" class="btn btn-ghost" data-open-rules data-i18n="rules.read"></button></p>
-      </div>
-    </section>
-
-    <section id="book" class="section section-tint">
-      <div class="wrap">
-        <h2 data-i18n="book.title"></h2>
-        <p class="lead-sm" id="book-lead" data-i18n="book.lead"></p>
-
-        <div id="booking-done" class="done" hidden></div>
-
-        <form id="booking-form" class="booking" novalidate>
-          <div class="booking-main">
-            <div class="calendar-card">
-              <div class="cal-head">
-                <button type="button" class="cal-nav" id="cal-prev" data-i18n-attr="aria-label:book.prev">‹</button>
-                <div class="cal-months" id="cal-months"></div>
-                <button type="button" class="cal-nav" id="cal-next" data-i18n-attr="aria-label:book.next">›</button>
-              </div>
-              <div class="cal-legend">
-                <span><i class="sw sw-free"></i><span data-i18n="book.legend.free"></span></span>
-                <span><i class="sw sw-booked"></i><span data-i18n="book.legend.booked"></span></span>
-                <span class="open-only"><i class="sw sw-sel"></i><span data-i18n="book.legend.selected"></span></span>
-              </div>
-              <p class="cal-status" id="cal-status" aria-live="polite"></p>
-              <p class="cal-foot closed-only"><span data-i18n="closed.calFoot"></span> <a href="#contact" data-i18n="closed.calLink"></a></p>
-              <p class="cal-foot open-only"><span id="cal-minmax"></span> <button type="button" class="linkish" id="cal-reset" data-i18n="book.reset" hidden></button></p>
-            </div>
-
-            <fieldset>
-              <legend data-i18n="form.guests"></legend>
-              <div class="row">
-                <label><span data-i18n="form.adults"></span>
-                  <select name="adults" id="adults"></select></label>
-                <label><span data-i18n="form.children"></span>
-                  <select name="children" id="children"></select>
-                  <small data-i18n="form.childrenHint"></small></label>
-              </div>
-            </fieldset>
-
-            <fieldset>
-              <legend data-i18n="form.contact"></legend>
-              <label><span data-i18n="form.name"></span><input name="name" autocomplete="name" required maxlength="120"></label>
-              <div class="row">
-                <label><span data-i18n="form.email"></span><input name="email" type="email" autocomplete="email" required maxlength="254"></label>
-                <label><span data-i18n="form.phone"></span><input name="phone" type="tel" autocomplete="tel" required maxlength="40"></label>
-              </div>
-              <label><span data-i18n="form.message"></span><textarea name="message" rows="3" maxlength="2000" data-i18n-attr="placeholder:form.messagePlaceholder"></textarea></label>
-              <label class="hp" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>
-            </fieldset>
-
-            <fieldset>
-              <legend data-i18n="form.payment"></legend>
-              <div class="pay-options" id="pay-options"></div>
-            </fieldset>
-          </div>
-
-          <aside class="summary">
-            <div class="summary-card">
-              <h3 data-i18n="price.title"></h3>
-              <div id="price-box"></div>
-              <div class="rate-info" id="rate-info"></div>
-              <label class="check">
-                <input type="checkbox" name="acceptRules" id="accept-rules" required>
-                <span id="accept-rules-text"></span>
-              </label>
-              <p class="form-error" id="form-error" role="alert" hidden></p>
-              <button type="submit" class="btn btn-block" id="submit-btn" data-i18n="form.submit"></button>
-              <p class="small" data-i18n="form.bindingNote"></p>
-            </div>
-          </aside>
-        </form>
-      </div>
-    </section>
-    <section id="contact" class="section">
+    <section id="contact" class="section section-tint">
       <div class="wrap prose">
         <h2 data-i18n="contact.title"></h2>
         <p data-i18n="contact.lead"></p>
         <p class="contact-lines">
-          <span id="contact-wa" hidden>WhatsApp: <strong id="contact-handle"></strong></span>
-          <span id="contact-mail" hidden><span data-i18n="contact.mailLabel"></span> <a id="contact-mail-link" href=""></a></span>
+          <span><span data-i18n="contact.mailLabel"></span> <a href="mailto:contact@simsab.net">contact@simsab.net</a></span>
+          <span>WhatsApp: <strong>@simonsablowski</strong></span>
         </p>
-        <p class="small" id="contact-how" data-i18n="contact.how" hidden></p>
+        <p class="small" data-i18n="contact.how"></p>
       </div>
     </section>
   </main>
@@ -196,7 +134,6 @@
   <footer class="footer">
     <div class="wrap footer-inner">
       <span>Dora-Benjamin-Park 12 · 10245 Berlin</span>
-      <span id="reg-nr" hidden></span>
       <span class="footer-links">
         <a href="legal.html#imprint" data-i18n="footer.imprint"></a>
         <a href="legal.html#privacy" data-i18n="footer.privacy"></a>
@@ -204,19 +141,8 @@
     </div>
   </footer>
 
-  <dialog id="rules-dialog" class="sheet" aria-labelledby="rules-dialog-title">
-    <div class="sheet-head">
-      <div>
-        <h2 id="rules-dialog-title" data-i18n="rules.title"></h2>
-        <p class="small" id="rules-version"></p>
-      </div>
-      <button type="button" class="close" data-close data-i18n-attr="aria-label:rules.close">×</button>
-    </div>
-    <div class="sheet-body prose" id="rules-body"></div>
-  </dialog>
-
   <dialog id="lightbox" class="lightbox">
-    <button type="button" class="close" data-close data-i18n-attr="aria-label:rules.close">×</button>
+    <button type="button" class="close" data-close data-i18n-attr="aria-label:lightbox.close">×</button>
     <button type="button" class="lb-nav lb-prev" id="lightbox-prev" data-i18n-attr="aria-label:gallery.prev">‹</button>
     <figure><img id="lightbox-img" src="" alt=""><figcaption><span id="lightbox-cap"></span> <span class="lb-count" id="lightbox-count"></span></figcaption></figure>
     <button type="button" class="lb-nav lb-next" id="lightbox-next" data-i18n-attr="aria-label:gallery.next">›</button>
